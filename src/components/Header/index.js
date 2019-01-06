@@ -6,8 +6,9 @@ class Header extends React.Component {
   render() {
     return (
       <PageHeader>
-        <a className="Insta-logo" href="/">
-          Instagram
+        {" "}
+        <a href="/">
+          <img src="../../Insta-logo.png" alt="Insta-logo" /> Instagram
         </a>
       </PageHeader>
     );
