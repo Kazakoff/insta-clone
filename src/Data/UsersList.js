@@ -1,4 +1,4 @@
-import Roles from "Roles";
+import Roles from "./Roles";
 
 let userslist = {
   "V.K@vstu.by": {

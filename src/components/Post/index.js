@@ -3,32 +3,17 @@ import "./Post.css";
 
 class Post extends Component {
   render() {
+    const image = this.props.image;
+    const caption = this.props.caption;
     return (
       <article className="Post" ref="Post">
         <header>
-          <div className="Post-user">
-            <div className="Post-user-avatar">
-              <img
-                src="https://www.laravelnigeria.com/img/chris.jpg"
-                alt="Chris"
-              />
-            </div>
-            <div className="Post-user-nickname">
-              <span>Chris</span>
-            </div>
-          </div>
+          <div className="Post-user" />
         </header>
         <div className="Post-image">
-          <div className="Post-image-bg">
-            <img
-              alt="Icon Living"
-              src="https://pbs.twimg.com/media/DOXI0IEXkAAkokm.jpg"
-            />
-          </div>
+          <img alt={caption} src={image} />
         </div>
-        <div className="Post-caption">
-          <strong>Chris</strong> Moving the community!
-        </div>
+        <div className="Post-caption">{caption}</div>
       </article>
     );
   }

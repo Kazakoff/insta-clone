@@ -1,4 +1,4 @@
-import userslist from "UsersList";
+import userslist from "./UsersList";
 let postslist = {
   "V.K@vstu.by": [
     {
@@ -8,7 +8,7 @@ let postslist = {
         "I.I@vstu.by": userslist["I.I@vstu.by"]
       },
       content: "Admin is heer",
-      pic: ""
+      pic: "http://isap.vstu.by/application/files/6915/4356/5692/kazakov.JPG"
     },
     {
       dataTime: new Date(2018, 12, 15, 16, 36, 20),
@@ -17,7 +17,7 @@ let postslist = {
         "I.I@vstu.by": userslist["I.I@vstu.by"]
       },
       content: "Admin`s first post",
-      pic: "https://pbs.twimg.com/media/DOXI0IEXkAAkokm.jpg"
+      pic: "http://isap.vstu.by/application/files/5015/4537/3353/153_1.jpg"
     }
   ],
   "I.I@vstu.by": [
@@ -35,7 +35,7 @@ let postslist = {
         "V.K@vstu.by": userslist["V.K@vstu.by"]
       },
       content: "Ivan`s first post",
-      pic: "https://pbs.twimg.com/media/DOXI0IEXkAAkokm.jpg"
+      pic: "http://isap.vstu.by/application/files/2015/4582/2666/news.JPG"
     }
   ]
 };

@@ -8,7 +8,7 @@ class Header extends React.Component {
       <PageHeader>
         {" "}
         <a href="/">
-          <img src="../../Insta-logo.png" alt="Insta-logo" /> Instagram
+          <img src="logo.png" alt="Insta-logo" /> Instagram
         </a>
       </PageHeader>
     );
