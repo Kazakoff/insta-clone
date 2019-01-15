@@ -15,7 +15,7 @@ class Wall extends Component {
     return (
       <ListGroup>
         {this.state.posts.slice(0).map(post => (
-          <Post image={post.pic} caption={post.content} />Re
+          <Post image={post.pic} caption={post.content} />
         ))}
       </ListGroup>
     );

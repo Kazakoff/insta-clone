@@ -7,9 +7,9 @@ export const createPost = ({ title, body }) => ({
   }
 });
 
-export const deletePost = id => ({
+export const deletePost = dataTime => ({
   type: DELETE_POST,
   payload: {
-    id
+    dataTime
   }
 });
