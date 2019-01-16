@@ -4,8 +4,7 @@ import { ListGroupItem } from "react-bootstrap";
 
 class Post extends Component {
   render() {
-    const image = this.props.image;
-    const caption = this.props.caption;
+    const { image, caption } = this.props;
     return (
       <ListGroupItem header="Post-user" Post-user="danger">
         <div className="Post-image">

@@ -4,21 +4,34 @@ import "./App.css";
 import Header from "./components/Header";
 import Wall from "./components/Wall";
 import AddPostForm from "./components/AddPostForm";
-import { Provider } from "react-redux";
-import store, { history } from "./store";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as actionCreators from "./Actions/PostActions";
 
-class App extends Component {
+function mapStateToProps(state) {
+  return {
+    posts: state.posts
+  };
+}
+
+function mapDispachToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch);
+}
+
+class Main extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <div className="App">
-          <Header />
-          <AddPostForm />
-          <Wall />
-        </div>
-      </Provider>
+      <div className="App">
+        <Header />
+        <AddPostForm />
+        <Wall />
+      </div>
     );
   }
 }
+const App = connect(
+  mapStateToProps,
+  mapDispachToProps
+)(Main);
 
 export default App;

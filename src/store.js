@@ -8,8 +8,10 @@ import rootReducer from "./reducers/index";
 import posts from "./Data/PostList";
 
 // create an object for the default data
+const user = "V.K@vstu.by";
 const defaultState = {
-  posts
+  posts: posts[user],
+  user
 };
 
 const store = createStore(rootReducer, defaultState);
