@@ -1,8 +1,15 @@
-function posts(state = [], action) {
-  console.log("Working");
-  console.log(state, action);
+import { ADD_POST, DELETE_POST } from "../Data/ActionsTypes";
 
-  return state;
+function posts(state = [], action) {
+  switch (action.type) {
+    case ADD_POST:
+      console.log(action.payload);
+      return [...state, action.payload];
+    case DELETE_POST:
+      return state.filter(post => post.dataTime !== action.payload.dataTime);
+    default:
+      return state;
+  }
 }
 
 export default posts;

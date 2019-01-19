@@ -1,9 +1,13 @@
 import { ADD_POST, DELETE_POST } from "../Data/ActionsTypes";
-export const createPost = ({ title, body }) => ({
+import userslist from "../Data/UsersList";
+export const createPost = ({ text, picURL }) => ({
   type: ADD_POST,
   payload: {
-    title,
-    body
+    dataTime: new Date(),
+    user: userslist["V.K@vstu.by"],
+    likes: {},
+    content: text,
+    pic: picURL
   }
 });
 

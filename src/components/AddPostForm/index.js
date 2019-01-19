@@ -1,29 +1,44 @@
 import React from "react";
 import { PageHeader } from "react-bootstrap";
+import { connect } from "react-redux";
+import { createPost } from "../../Actions/PostActions";
 
-class AddPostForm extends React.Component {
+function mapDispatchToProps(dispatch) {
+  return {
+    onAddPost: post => {
+      dispatch(createPost(post));
+    }
+  };
+}
+
+class AddPostFormE extends React.Component {
   constructor(props) {
     super(props);
     this.state = { text: "", picURL: "" };
-
-    this.handleTextChange = this.handleTextChange.bind(this);
-    this.handlePicURLChange = this.handlePicURLChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleTextChange(event) {
+  handleTextChange = event => {
     this.setState({ text: event.target.value });
-  }
+  };
 
-  handlePicURLChange(event) {
+  handlePicURLChange = event => {
     this.setState({ picURL: event.target.value });
-  }
+  };
 
-  handleSubmit(event) {
-    alert("A name was submitted: " + this.state.text);
+  handleReset = e => {
+    this.setState({ text: "", picURL: "" });
+  };
+
+  handleSubmit = event => {
+    // alert("A name was submitted: " + this.state.text);
     event.preventDefault();
-  }
-
+    if (this.state.picURL.trim() && this.state.text.trim()) {
+      console.log(this.state);
+      this.props.onAddPost(this.state);
+      this.handleReset();
+      event.preventDefault();
+    }
+  };
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
@@ -49,4 +64,8 @@ class AddPostForm extends React.Component {
   }
 }
 
+const AddPostForm = connect(
+  null,
+  mapDispatchToProps
+)(AddPostFormE);
 export default AddPostForm;
