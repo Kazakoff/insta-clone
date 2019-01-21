@@ -11,6 +11,13 @@ class Post extends Component {
           <img alt={caption} src={image} />
         </div>
         <div className="Post-caption">{caption}</div>
+        <button
+          className="btn btn-danger"
+          type="button"
+          onClick={() => onDelete(id)}
+        >
+          Remove
+        </button>
       </ListGroupItem>
     );
   }

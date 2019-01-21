@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header";
 import Wall from "./components/Wall";
 import AddPostForm from "./components/AddPostForm";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as actionCreators from "./Actions/PostActions";
+import * as PostActions from "./Actions/PostActions";
 
 function mapStateToProps(state) {
   return {
@@ -15,7 +14,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispachToProps(dispatch) {
-  return bindActionCreators(actionCreators, dispatch);
+  return bindActionCreators(PostActions, dispatch);
 }
 
 class Main extends Component {
