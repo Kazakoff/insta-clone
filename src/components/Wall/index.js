@@ -3,9 +3,8 @@ import "./Wall.css";
 import Post from "../Post";
 import PostList from "../../Data/PostList";
 import { ListGroup } from "react-bootstrap";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as PostActions from "../../Actions/PostActions";
+import { deletePost } from "../../Actions/PostActions";
 
 function mapStateToProps(state) {
   return {
@@ -20,27 +19,20 @@ function mapDispachToProps(dispatch) {
     }
   };
 }
-class WallE extends Component {
-  constructor() {
-    super();
-    this.state = {
-      posts: PostList["I.I@vstu.by"]
-    };
-  }
-  render() {
+
+  function WallE({ posts, onDelete }) {
     return (
       <ListGroup>
-        {this.state.posts.slice(0).map(post => (
+        {posts.slice(0).map(post => (
           <Post
             key={post.dataTime.toString()}
-            image={post.pic}
-            caption={post.content}
+            post={post}
+            onDelete={onDelete}
           />
         ))}
       </ListGroup>
     );
   }
-}
 
 const Wall = connect(
   mapStateToProps,

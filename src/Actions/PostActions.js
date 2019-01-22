@@ -1,5 +1,6 @@
 import { ADD_POST, DELETE_POST } from "../Data/ActionsTypes";
 import userslist from "../Data/UsersList";
+
 export const createPost = ({ text, picURL }) => ({
   type: ADD_POST,
   payload: {

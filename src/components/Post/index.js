@@ -4,17 +4,17 @@ import { ListGroupItem } from "react-bootstrap";
 
 class Post extends Component {
   render() {
-    const { image, caption } = this.props;
+    const { post, onDelete } = this.props;
     return (
       <ListGroupItem header="Post-user" Post-user="danger">
         <div className="Post-image">
-          <img alt={caption} src={image} />
+          <img alt={post.caption} src={post.image} />
         </div>
-        <div className="Post-caption">{caption}</div>
+        <div className="Post-caption">{post.caption}</div>
         <button
           className="btn btn-danger"
           type="button"
-          onClick={() => onDelete(id)}
+          onClick={() => onDelete(post.dataTime)}
         >
           Remove
         </button>
