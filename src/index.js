@@ -13,7 +13,7 @@ const router = (
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App} />
-      <Route path="/login" component={LoginForm} />
+      <Route path="login" component={LoginForm} />
     </Router>
   </Provider>
 );
