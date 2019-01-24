@@ -1,7 +1,7 @@
 import React from "react";
 import { PageHeader } from "react-bootstrap";
 import { connect } from "react-redux";
-import { getUser } from "../../Actions/PostActions";
+import { getUser } from "../../Actions/UserActions";
 
 function mapDispatchToProps(dispatch) {
   return {

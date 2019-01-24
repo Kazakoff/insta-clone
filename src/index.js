@@ -5,10 +5,16 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import store, { history } from "./store";
+import { Router, Route } from "react-router";
+import LoginForm from "./components/Login";
+// import { Route, Link } from "react-router-dom";
 
 const router = (
   <Provider store={store}>
-    <App />
+    <Router history={history}>
+      <Route path="/" component={App} />
+      <Route path="/login" component={LoginForm} />
+    </Router>
   </Provider>
 );
 
