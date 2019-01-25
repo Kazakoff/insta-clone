@@ -1,4 +1,4 @@
-import { ADD_POST, DELETE_POST } from "../Data/ActionsTypes";
+import { ADD_POST, DELETE_POST, LOAD_POSTS } from "../Data/ActionsTypes";
 import userslist from "../Data/UsersList";
 
 export const createPost = ({ text, picURL }) => ({
@@ -10,6 +10,11 @@ export const createPost = ({ text, picURL }) => ({
     content: text,
     pic: picURL
   }
+});
+
+export const loadPost = posts => ({
+  type: LOAD_POSTS,
+  payload: posts
 });
 
 export const deletePost = dataTime => ({
