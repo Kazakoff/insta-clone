@@ -10,12 +10,12 @@ import posts from "./Data/PostList";
 // create an object for the default data
 const user = "V.K@vstu.by";
 const defaultState = {
-  posts: posts[user],
-  user
+  posts: [],
+  user: ""
 };
 
 export const history = createHistory();
-const store = createStore(rootReducer, defaultState);
+const store = createStore(rootReducer);
 //const store = createStore(rootReducer);
 // export const history = syncHistoryWithStore(browserHistory, store);
 

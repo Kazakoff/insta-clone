@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Wall.css";
 import Post from "../Post";
-import PostList from "../../Data/PostList";
 import { ListGroup } from "react-bootstrap";
 import { connect } from "react-redux";
 import { deletePost } from "../../Actions/PostActions";
@@ -20,19 +19,15 @@ function mapDispachToProps(dispatch) {
   };
 }
 
-  function WallE({ posts, onDelete }) {
-    return (
-      <ListGroup>
-        {posts.slice(0).map(post => (
-          <Post
-            key={post.dataTime.toString()}
-            post={post}
-            onDelete={onDelete}
-          />
-        ))}
-      </ListGroup>
-    );
-  }
+function WallE({ posts, onDelete }) {
+  return (
+    <ListGroup>
+      {posts.slice(0).map(post => (
+        <Post key={post.dataTime.toString()} post={post} onDelete={onDelete} />
+      ))}
+    </ListGroup>
+  );
+}
 
 const Wall = connect(
   mapStateToProps,

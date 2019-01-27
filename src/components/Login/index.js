@@ -2,7 +2,8 @@ import React from "react";
 import { PageHeader } from "react-bootstrap";
 import { connect } from "react-redux";
 import { getUser } from "../../Actions/UserActions";
-
+import { browserHistory } from "react-router";
+import { history } from "../../store";
 function mapStateToProps(state) {
   return {
     login: state.login,
@@ -40,6 +41,8 @@ class LoginFormE extends React.Component {
       console.log(this.state);
       this.props.onLogin(this.state);
       event.preventDefault();
+      //this.context.router.push("/");
+      history.push(`/`);
     }
   };
 

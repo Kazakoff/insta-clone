@@ -1,14 +1,14 @@
 import { GET_USER } from "../Data/ActionsTypes";
 
-function users(state = [], action) {
+function users(state = "V.K@vstu.by", action) {
   console.log(action);
   switch (action.type) {
     case GET_USER:
       let st = Object({}, state);
       // console.log(state);
-      st.user = action.payload.login;
+      st = action.payload.login;
       console.log(st);
-      return state;
+      return st;
     default:
       return state;
   }

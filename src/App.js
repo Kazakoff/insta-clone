@@ -10,7 +10,8 @@ import posts from "./Data/PostList";
 
 function mapStateToProps(state) {
   return {
-    posts: state.posts
+    posts: state.posts,
+    user: state.user
   };
 }
 
@@ -19,18 +20,14 @@ function mapDispachToProps(dispatch) {
 }
 
 // create an object for the default data
-const user = "V.K@vstu.by";
+// const user = "V.K@vstu.by";
 
 class Main extends Component {
   componentDidMount() {
-    console.log(posts[user]);
-    //this.props.loadPost(posts[user]);
-    /* this.props.createPost({
-      text: "ttttt",
-      picURL: "uuuuuuuuuuuuuuuuuuuu"
-    });
-    */
-    //
+    console.log(this.props);
+    // console.log(this.state);
+    // console.log(posts[this.props.user]);
+    this.props.loadPost(posts[this.props.user]);
   }
   render() {
     return (
