@@ -30,7 +30,6 @@ class AddPostFormE extends React.Component {
   };
 
   handleSubmit = event => {
-    // alert("A name was submitted: " + this.state.text);
     event.preventDefault();
     if (this.state.picURL.trim() && this.state.text.trim()) {
       console.log(this.state);

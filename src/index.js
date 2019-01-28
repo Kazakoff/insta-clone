@@ -12,10 +12,11 @@ import LoginForm from "./components/Login";
 const router = (
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={App}>
+      <Route path="/">
         <IndexRedirect to="login" />
       </Route>
       <Route path="login" component={LoginForm} />
+      <Route path="posts" component={App} />
     </Router>
   </Provider>
 );

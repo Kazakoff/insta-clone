@@ -25,9 +25,7 @@ function mapDispachToProps(dispatch) {
 class Main extends Component {
   componentDidMount() {
     console.log(this.props);
-    // console.log(this.state);
-    // console.log(posts[this.props.user]);
-    this.props.loadPost(posts[this.props.user]);
+    // this.props.loadPost(posts[this.props.user]);
   }
   render() {
     return (

@@ -1,4 +1,9 @@
-import { ADD_POST, DELETE_POST, LOAD_POSTS } from "../Data/ActionsTypes";
+import {
+  ADD_POST,
+  DELETE_POST,
+  LOAD_POSTS,
+  CLEAR_POSTS
+} from "../Data/ActionsTypes";
 import postList from "../Data/PostList";
 import postslist from "../Data/PostList";
 
@@ -10,6 +15,8 @@ function posts(state = [], action) {
     case LOAD_POSTS:
       console.log("load");
       return state.concat(action.payload);
+    case CLEAR_POSTS:
+      return [];
     case ADD_POST:
       return [...state, action.payload];
     case DELETE_POST:

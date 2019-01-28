@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import { getUser } from "../../Actions/UserActions";
 import { browserHistory } from "react-router";
 import { history } from "../../store";
+import { loadPost, clearPost } from "../../Actions/PostActions";
+import posts from "../../Data/PostList";
+
 function mapStateToProps(state) {
   return {
     login: state.login,
@@ -16,6 +19,8 @@ function mapDispatchToProps(dispatch) {
     onLogin: ({ login, password }) => {
       console.log(login + password);
       dispatch(getUser(login, password));
+      dispatch(clearPost());
+      dispatch(loadPost(posts[login]));
     }
   };
 }
@@ -35,14 +40,12 @@ class LoginFormE extends React.Component {
   };
 
   handleSubmit = event => {
-    // alert("A name was submitted: " + this.state.text);
     event.preventDefault();
     if (this.state.login.trim() && this.state.password.trim()) {
       console.log(this.state);
       this.props.onLogin(this.state);
-      event.preventDefault();
       //this.context.router.push("/");
-      history.push(`/`);
+      history.push("/posts");
     }
   };
 
