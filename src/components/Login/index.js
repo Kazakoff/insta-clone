@@ -6,6 +6,8 @@ import { browserHistory } from "react-router";
 import { history } from "../../store";
 import { loadPost, clearPost } from "../../Actions/PostActions";
 import posts from "../../Data/PostList";
+import emailPropType from "email-prop-type";
+import PropTypes from "prop-types";
 
 function mapStateToProps(state) {
   return {
@@ -17,7 +19,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     onLogin: ({ login, password }) => {
-      console.log(login + password);
       dispatch(getUser(login, password));
       dispatch(clearPost());
       dispatch(loadPost(posts[login]));
@@ -28,7 +29,7 @@ function mapDispatchToProps(dispatch) {
 class LoginFormE extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { login: "", password: "" };
+    this.state = { login: "V.K@vstu.by", password: "www" };
   }
 
   handleLoginChange = event => {
@@ -73,6 +74,10 @@ class LoginFormE extends React.Component {
     );
   }
 }
+LoginFormE.propTypes = {
+  login: emailPropType.isRequired,
+  password: PropTypes.string
+};
 
 const LoginForm = connect(
   mapStateToProps,
