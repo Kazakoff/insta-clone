@@ -7,6 +7,8 @@ import { Provider } from "react-redux";
 import store, { history } from "./store";
 import { Router, Route, IndexRedirect } from "react-router";
 import LoginForm from "./components/Login";
+import "bootstrap/dist/css/bootstrap.css";
+//import "bootstrap/dist/css/bootstrap-theme.css";
 // import { Route, Link } from "react-router-dom";
 
 const router = (

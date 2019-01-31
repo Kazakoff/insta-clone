@@ -1,5 +1,5 @@
 import React from "react";
-import { PageHeader } from "react-bootstrap";
+import { ButtonToolbar, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { getUser } from "../../Actions/UserActions";
 import { browserHistory } from "react-router";
@@ -8,6 +8,8 @@ import { loadPost, clearPost } from "../../Actions/PostActions";
 import posts from "../../Data/PostList";
 import emailPropType from "email-prop-type";
 import PropTypes from "prop-types";
+import "bootstrap/dist/css/bootstrap.css";
+import "./Login.css";
 
 function mapStateToProps(state) {
   return {
@@ -40,27 +42,39 @@ class LoginFormE extends React.Component {
     this.setState({ password: event.target.value });
   };
 
-  handleSubmit = event => {
+  handleLogin = event => {
     event.preventDefault();
     if (this.state.login.trim() && this.state.password.trim()) {
       console.log(this.state);
       this.props.onLogin(this.state);
-      //this.context.router.push("/");
-      history.push("/posts");
+      this.props.router.push("/posts");
+      //history.push("/posts");
+    }
+  };
+
+  handleRegister = event => {
+    event.preventDefault();
+    if (this.state.login.trim() && this.state.password.trim()) {
+      console.log(this.state);
+      this.props.onLogin(this.state);
+      this.props.router.push("/posts");
+      //history.push("/posts");
     }
   };
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Login:
-          <input
-            type="text"
-            value={this.state.login}
-            onChange={this.handleLoginChange}
-          />
-        </label>
+      <div class="jumbotron">
+        <div class="jumbotron">
+          <label>
+            Login:
+            <input
+              type="text"
+              value={this.state.login}
+              onChange={this.handleLoginChange}
+            />
+          </label>
+        </div>
         <label>
           Password:
           <input
@@ -69,14 +83,24 @@ class LoginFormE extends React.Component {
             onChange={this.handlePasswordChange}
           />
         </label>
-        <input type="submit" value="Submit" />
-      </form>
+        <div>
+          <ButtonToolbar>
+            <Button variant="primary" onClick={this.handleRegister} size="lg">
+              Login
+            </Button>
+            <Button variant="secondary" onClick={this.handleLogin} size="lg">
+              Register
+            </Button>
+          </ButtonToolbar>
+        </div>
+      </div>
     );
   }
 }
 LoginFormE.propTypes = {
   login: emailPropType.isRequired,
-  password: PropTypes.string
+  password: PropTypes.string,
+  router: PropTypes.object.isRequired
 };
 
 const LoginForm = connect(
