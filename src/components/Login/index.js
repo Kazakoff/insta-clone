@@ -10,6 +10,10 @@ import emailPropType from "email-prop-type";
 import PropTypes from "prop-types";
 import "bootstrap/dist/css/bootstrap.css";
 import "./Login.css";
+import LoginForm from"./LoginForm"
+
+export const LOGIN_MODE = "LOGIN_MODE";
+export const REGISTER_MODE = "REGISTER_MODE";
 
 function mapStateToProps(state) {
   return {
@@ -20,7 +24,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onLogin: ({ login, password }) => {
+    onLogin: ( login, password ) => {
       dispatch(getUser(login, password));
       dispatch(clearPost());
       dispatch(loadPost(posts[login]));
@@ -28,35 +32,25 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-class LoginFormE extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { login: "V.K@vstu.by", password: "www" };
-  }
 
-  handleLoginChange = event => {
-    this.setState({ login: event.target.value });
-  };
+class EntranceFormE extends React.Component {
+  state = { mode: LOGIN_MODE};
 
-  handlePasswordChange = event => {
-    this.setState({ password: event.target.value });
-  };
+  setRegisterMode = () => {  this.setState({ mode: REGISTER_MODE})}
+  setLoginMode = () => {  this.setState({ mode: LOGIN_MODE})}
 
-  handleLogin = event => {
-    event.preventDefault();
-    if (this.state.login.trim() && this.state.password.trim()) {
-      console.log(this.state);
-      this.props.onLogin(this.state);
+
+  handleLogin = ({login, password}) => {
+    if (login.trim() && password.trim()) {
+      this.props.onLogin(login, password);
       this.props.router.push("/posts");
       //history.push("/posts");
     }
   };
 
-  handleRegister = event => {
-    event.preventDefault();
-    if (this.state.login.trim() && this.state.password.trim()) {
-      console.log(this.state);
-      this.props.onLogin(this.state);
+  handleRegister = ({login, password}) => {
+    if (login.trim() && password.trim()) {
+      this.props.onLogin(login, password);
       this.props.router.push("/posts");
       //history.push("/posts");
     }
@@ -64,47 +58,30 @@ class LoginFormE extends React.Component {
 
   render() {
     return (
-      <div class="jumbotron">
-        <div class="jumbotron">
-          <label>
-            Login:
-            <input
-              type="text"
-              value={this.state.login}
-              onChange={this.handleLoginChange}
-            />
-          </label>
-        </div>
-        <label>
-          Password:
-          <input
-            type="text"
-            value={this.state.password}
-            onChange={this.handlePasswordChange}
-          />
-        </label>
-        <div>
+      <div>
           <ButtonToolbar>
-            <Button variant="primary" onClick={this.handleRegister} size="lg">
+            <Button variant="primary" onClick={this.setLoginMode} size="lg">
               Login
             </Button>
-            <Button variant="secondary" onClick={this.handleLogin} size="lg">
+            <Button variant="secondary" onClick={this.setRegisterMode} size="lg">
               Register
             </Button>
           </ButtonToolbar>
-        </div>
+          <LoginForm handleAction = {this.state.mode === LOGIN_MODE ? this.handleLogin : this.handleRegister } 
+           title =  {this.state.mode === LOGIN_MODE ? "Login" : "Register" } 
+          />
       </div>
     );
   }
 }
-LoginFormE.propTypes = {
+EntranceFormE.propTypes = {
   login: emailPropType.isRequired,
   password: PropTypes.string,
-  router: PropTypes.object.isRequired
+  router: PropTypes.object.isRequired  //  если required то router подкидывается в props
 };
 
-const LoginForm = connect(
+const EntranceForm = connect(
   mapStateToProps,
   mapDispatchToProps
-)(LoginFormE);
-export default LoginForm;
+)(EntranceFormE);
+export default EntranceForm;
