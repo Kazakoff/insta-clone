@@ -10,7 +10,7 @@ import emailPropType from "email-prop-type";
 import PropTypes from "prop-types";
 import "bootstrap/dist/css/bootstrap.css";
 import "./Login.css";
-import LoginForm from"./LoginForm"
+import LoginForm from "./LoginForm";
 
 export const LOGIN_MODE = "LOGIN_MODE";
 export const REGISTER_MODE = "REGISTER_MODE";
@@ -24,7 +24,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onLogin: ( login, password ) => {
+    onLogin: (login, password) => {
       dispatch(getUser(login, password));
       dispatch(clearPost());
       dispatch(loadPost(posts[login]));
@@ -32,15 +32,17 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-
 class EntranceFormE extends React.Component {
-  state = { mode: LOGIN_MODE};
+  state = { mode: LOGIN_MODE };
 
-  setRegisterMode = () => {  this.setState({ mode: REGISTER_MODE})}
-  setLoginMode = () => {  this.setState({ mode: LOGIN_MODE})}
+  setRegisterMode = () => {
+    this.setState({ mode: REGISTER_MODE });
+  };
+  setLoginMode = () => {
+    this.setState({ mode: LOGIN_MODE });
+  };
 
-
-  handleLogin = ({login, password}) => {
+  handleLogin = ({ login, password }) => {
     if (login.trim() && password.trim()) {
       this.props.onLogin(login, password);
       this.props.router.push("/posts");
@@ -48,7 +50,7 @@ class EntranceFormE extends React.Component {
     }
   };
 
-  handleRegister = ({login, password}) => {
+  handleRegister = ({ login, password }) => {
     if (login.trim() && password.trim()) {
       this.props.onLogin(login, password);
       this.props.router.push("/posts");
@@ -58,18 +60,33 @@ class EntranceFormE extends React.Component {
 
   render() {
     return (
-      <div>
-          <ButtonToolbar>
-            <Button variant="primary" onClick={this.setLoginMode} size="lg">
-              Login
-            </Button>
-            <Button variant="secondary" onClick={this.setRegisterMode} size="lg">
-              Register
-            </Button>
-          </ButtonToolbar>
-          <LoginForm handleAction = {this.state.mode === LOGIN_MODE ? this.handleLogin : this.handleRegister } 
-           title =  {this.state.mode === LOGIN_MODE ? "Login" : "Register" } 
-          />
+      <div className="all-win-wrap">
+        <ButtonToolbar>
+          <Button
+            class="btn"
+            variant="primary"
+            onClick={this.setLoginMode}
+            size="lg"
+          >
+            Login
+          </Button>
+          <Button
+            class="btn"
+            variant="secondary"
+            onClick={this.setRegisterMode}
+            size="lg"
+          >
+            Register
+          </Button>
+        </ButtonToolbar>
+        <LoginForm
+          handleAction={
+            this.state.mode === LOGIN_MODE
+              ? this.handleLogin
+              : this.handleRegister
+          }
+          title={this.state.mode === LOGIN_MODE ? "Login" : "Register"}
+        />
       </div>
     );
   }
@@ -77,7 +94,7 @@ class EntranceFormE extends React.Component {
 EntranceFormE.propTypes = {
   login: emailPropType.isRequired,
   password: PropTypes.string,
-  router: PropTypes.object.isRequired  //  если required то router подкидывается в props
+  router: PropTypes.object.isRequired //  если required то router подкидывается в props
 };
 
 const EntranceForm = connect(
