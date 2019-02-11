@@ -8,7 +8,7 @@ import { loadPost, clearPost } from "../../Actions/PostActions";
 import posts from "../../Data/PostList";
 import emailPropType from "email-prop-type";
 import PropTypes from "prop-types";
-import "bootstrap/dist/css/bootstrap.css";
+//import "bootstrap/dist/css/bootstrap.css";
 import "./Login.css";
 import LoginForm from "./LoginForm";
 
@@ -63,19 +63,14 @@ class EntranceFormE extends React.Component {
       <div className="all-win-wrap">
         <ButtonToolbar>
           <Button
-            class="btn"
-            variant="primary"
+            className="ctrl-btn"
+            variant="Dark"
             onClick={this.setLoginMode}
             size="lg"
           >
             Login
           </Button>
-          <Button
-            class="btn"
-            variant="secondary"
-            onClick={this.setRegisterMode}
-            size="lg"
-          >
+          <Button variant="Dark" onClick={this.setRegisterMode} size="lg">
             Register
           </Button>
         </ButtonToolbar>

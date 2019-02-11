@@ -1,5 +1,6 @@
 import React from "react";
 import { ButtonToolbar, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import { getUser } from "../../Actions/UserActions";
 import { browserHistory } from "react-router";
@@ -8,10 +9,8 @@ import { loadPost, clearPost } from "../../Actions/PostActions";
 import posts from "../../Data/PostList";
 import emailPropType from "email-prop-type";
 import PropTypes from "prop-types";
-import "bootstrap/dist/css/bootstrap.css";
+// import "bootstrap/dist/css/bootstrap.css";
 import "./Login.css";
-
-
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -28,22 +27,20 @@ class LoginForm extends React.Component {
   };
 
   handleAction = () => {
-    this.props.handleAction(this.state);            
-}
+    this.props.handleAction(this.state);
+  };
 
   render() {
     return (
-      <div className="jumbotron">
-        <div className="jumbotron">
-          <label>
-            Login:
-            <input
-              type="text"
-              value={this.state.login}
-              onChange={this.handleLoginChange}
-            />
-          </label>
-        </div>
+      <Modal.Dialog>
+        <label>
+          Login:
+          <input
+            type="text"
+            value={this.state.login}
+            onChange={this.handleLoginChange}
+          />
+        </label>
         <label>
           Password:
           <input
@@ -54,17 +51,17 @@ class LoginForm extends React.Component {
         </label>
         <div>
           <ButtonToolbar>
-            <Button variant="primary" onClick={this.handleAction} size="lg">
+            <Button bsStyle="danger" onClick={this.handleAction} bsSize="large">
               {this.props.title}
             </Button>
           </ButtonToolbar>
         </div>
-      </div>
+      </Modal.Dialog>
     );
   }
 }
 LoginForm.propTypes = {
   login: emailPropType.isRequired,
-  password: PropTypes.string,
+  password: PropTypes.string
 };
 export default LoginForm;
