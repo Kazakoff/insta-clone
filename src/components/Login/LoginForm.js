@@ -1,8 +1,7 @@
 import React from "react";
 import { ButtonToolbar, Button } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
-import { browserHistory } from "react-router";
-import { history } from "../../store";
+import { css, jsx } from "@emotion/core";
 import emailPropType from "email-prop-type";
 import PropTypes from "prop-types";
 import "./Login.css";
@@ -10,7 +9,7 @@ import "./Login.css";
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { login: "V.K@vstu.by", password: "www" };
+    this.state = { login: "V.K@vstu.by", password: "www", show: false };
   }
 
   handleLoginChange = event => {
@@ -25,12 +24,18 @@ class LoginForm extends React.Component {
     this.props.handleAction(this.state);
   };
 
+  handleClose() {
+    this.setState({ show: false });
+  }
+
   render() {
     return (
-      <Modal.Dialog>
-        <Modal.Header closeButton>
-          <Modal.Title>{this.props.title}</Modal.Title>
-        </Modal.Header>
+      <Modal.Dialog
+        show={this.state.show}
+        centered="true"
+        onHide={this.handleClose}
+      >
+        <Modal.Header closeButton />
         <label>
           Login:
           <input
