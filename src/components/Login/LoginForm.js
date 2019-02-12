@@ -1,15 +1,10 @@
 import React from "react";
 import { ButtonToolbar, Button } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
-import { connect } from "react-redux";
-import { getUser } from "../../Actions/UserActions";
 import { browserHistory } from "react-router";
 import { history } from "../../store";
-import { loadPost, clearPost } from "../../Actions/PostActions";
-import posts from "../../Data/PostList";
 import emailPropType from "email-prop-type";
 import PropTypes from "prop-types";
-// import "bootstrap/dist/css/bootstrap.css";
 import "./Login.css";
 
 class LoginForm extends React.Component {
@@ -33,6 +28,9 @@ class LoginForm extends React.Component {
   render() {
     return (
       <Modal.Dialog>
+        <Modal.Header closeButton>
+          <Modal.Title>{this.props.title}</Modal.Title>
+        </Modal.Header>
         <label>
           Login:
           <input
