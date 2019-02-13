@@ -12,9 +12,6 @@ import PropTypes from "prop-types";
 import "./Login.css";
 import LoginForm from "./LoginForm";
 
-export const LOGIN_MODE = "LOGIN_MODE";
-export const REGISTER_MODE = "REGISTER_MODE";
-
 function mapStateToProps(state) {
   return {
     login: state.login,
@@ -33,13 +30,28 @@ function mapDispatchToProps(dispatch) {
 }
 
 class EntranceFormE extends React.Component {
-  state = { mode: LOGIN_MODE };
+  state = {
+    dlgShow: false,
+    dlgTitle: "Register",
+    dlgHandleOk: this.handleRegister,
+    dlgHandleCancel: this.handleCancel
+  };
 
   setRegisterMode = () => {
-    this.setState({ mode: REGISTER_MODE });
+    this.setState({
+      dlgShow: true,
+      dlgTitle: "Register",
+      dlgHandleOk: this.handleRegister,
+      dlgHandleCancel: this.handleCancel
+    });
   };
   setLoginMode = () => {
-    this.setState({ mode: LOGIN_MODE });
+    this.setState({
+      dlgShow: true,
+      dlgTitle: "Login",
+      dlgHandleOk: this.handleLogin,
+      dlgHandleCancel: this.handleCancel
+    });
   };
 
   handleLogin = ({ login, password }) => {
@@ -57,10 +69,13 @@ class EntranceFormE extends React.Component {
       //history.push("/posts");
     }
   };
+  handleCancel = ({ login, password }) => {
+    this.setState({ dlgShow: false });
+  };
 
   render() {
     return (
-      <div className="all-win-wrap">
+      <div>
         <ButtonToolbar>
           <Button
             className="ctrl-btn"
@@ -75,18 +90,18 @@ class EntranceFormE extends React.Component {
           </Button>
         </ButtonToolbar>
         <LoginForm
-          handleAction={
-            this.state.mode === LOGIN_MODE
-              ? this.handleLogin
-              : this.handleRegister
-          }
-          title={this.state.mode === LOGIN_MODE ? "Login" : "Register"}
+          handleOk={this.state.dlgHandleOk}
+          handleCancel={this.state.dlgHandleCancel}
+          title={this.state.dlgTitle}
+          show={this.state.dlgShow}
         />
       </div>
     );
   }
 }
 EntranceFormE.propTypes = {
+  dlgHandleOk: PropTypes.func,
+  dlgHandleCancel: PropTypes.func,
   login: emailPropType.isRequired,
   password: PropTypes.string,
   router: PropTypes.object.isRequired //  если required то router подкидывается в props

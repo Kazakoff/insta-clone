@@ -9,7 +9,7 @@ import "./Login.css";
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { login: "V.K@vstu.by", password: "www", show: false };
+    this.state = { login: "V.K@vstu.by", password: "www" };
   }
 
   handleLoginChange = event => {
@@ -20,20 +20,20 @@ class LoginForm extends React.Component {
     this.setState({ password: event.target.value });
   };
 
-  handleAction = () => {
-    this.props.handleAction(this.state);
+  handleOk = () => {
+    this.props.handleOk(this.state);
   };
 
-  handleClose() {
-    this.setState({ show: false });
-  }
+  handleCancel = () => {
+    this.props.handleCancel(this.state);
+  };
 
   render() {
     return (
-      <Modal.Dialog
-        show={this.state.show}
+      <Modal
+        show={this.props.show}
         centered="true"
-        onHide={this.handleClose}
+        onHide={this.props.handleCancel}
       >
         <Modal.Header closeButton />
         <label>
@@ -54,12 +54,15 @@ class LoginForm extends React.Component {
         </label>
         <div>
           <ButtonToolbar>
-            <Button bsStyle="danger" onClick={this.handleAction} bsSize="large">
+            <Button bsStyle="danger" onClick={this.handleOk} bsSize="large">
               {this.props.title}
+            </Button>
+            <Button bsStyle="danger" onClick={this.handleCancel} bsSize="large">
+              Cancel
             </Button>
           </ButtonToolbar>
         </div>
-      </Modal.Dialog>
+      </Modal>
     );
   }
 }
