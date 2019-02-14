@@ -69,7 +69,7 @@ class EntranceFormE extends React.Component {
       //history.push("/posts");
     }
   };
-  handleCancel = ({ login, password }) => {
+  handleCancel = () => {
     this.setState({ dlgShow: false });
   };
 
