@@ -2,8 +2,6 @@ import React from "react";
 import { ButtonToolbar, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { getUser } from "../../Actions/UserActions";
-import { browserHistory } from "react-router";
-import { history } from "../../store";
 import { loadPost, clearPost } from "../../Actions/PostActions";
 import posts from "../../Data/PostList";
 import emailPropType from "email-prop-type";
@@ -11,6 +9,8 @@ import PropTypes from "prop-types";
 //import "bootstrap/dist/css/bootstrap.css";
 import "./Login.css";
 import LoginForm from "./LoginForm";
+import logoimg from "../../img/logo.png";
+import * as style from "../../styles.js";
 
 function mapStateToProps(state) {
   return {
@@ -76,19 +76,17 @@ class EntranceFormE extends React.Component {
   render() {
     return (
       <div>
-        <ButtonToolbar>
-          <Button
-            className="ctrl-btn"
-            variant="Dark"
-            onClick={this.setLoginMode}
-            size="lg"
-          >
+        <div className={style.logo}>
+          <img src={logoimg} alt="logo" />
+        </div>
+        <style.CenteredButtonToolbar>
+          <style.BigButton onClick={this.setLoginMode} size="lg">
             Login
-          </Button>
-          <Button variant="Dark" onClick={this.setRegisterMode} size="lg">
+          </style.BigButton>
+          <style.BigButton onClick={this.setRegisterMode} size="lg">
             Register
-          </Button>
-        </ButtonToolbar>
+          </style.BigButton>
+        </style.CenteredButtonToolbar>
         <LoginForm
           handleOk={this.state.dlgHandleOk}
           handleCancel={this.state.dlgHandleCancel}
