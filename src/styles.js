@@ -1,6 +1,12 @@
 import styled from "@emotion/styled";
 import { css } from "emotion";
 
+const basicStyle2 = css`
+  display: flex;
+  border-color: rgb(0, 60, 53);
+  background-color: white !important;
+`;
+
 const basicStyle = css`
   display: flex;
   border-color: rgb(0, 60, 53);
