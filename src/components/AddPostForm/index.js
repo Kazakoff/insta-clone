@@ -31,7 +31,7 @@ class AddPostFormE extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    if (this.state.picURL.trim() && this.state.text.trim()) {
+    if (this.state.text.trim()) {
       console.log(this.state);
       this.props.onAddPost(this.state);
       this.handleReset();

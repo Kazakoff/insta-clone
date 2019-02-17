@@ -1,7 +1,7 @@
 import React from "react";
-import { ButtonToolbar, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { getUser } from "../../Actions/UserActions";
+import { regUser } from "../../Actions/UsersListActions";
 import { loadPost, clearPost } from "../../Actions/PostActions";
 import posts from "../../Data/PostList";
 import emailPropType from "email-prop-type";
@@ -11,6 +11,7 @@ import "./Login.css";
 import LoginForm from "./LoginForm";
 import logoimg from "../../img/logo.png";
 import * as style from "../../styles.js";
+import Roles from "../../Data/Roles";
 
 function mapStateToProps(state) {
   return {
@@ -25,6 +26,17 @@ function mapDispatchToProps(dispatch) {
       dispatch(getUser(login, password));
       dispatch(clearPost());
       dispatch(loadPost(posts[login]));
+    },
+    onRegister: (login, password) => {
+      dispatch(
+        regUser({
+          eMail: login,
+          firstName: login,
+          lastName: login,
+          delRequest: false,
+          role: Roles.USER
+        })
+      );
     }
   };
 }
@@ -32,7 +44,7 @@ function mapDispatchToProps(dispatch) {
 class EntranceFormE extends React.Component {
   state = {
     dlgShow: false,
-    dlgTitle: "Register",
+    dlgTitle: "Sign up",
     dlgHandleOk: this.handleRegister,
     dlgHandleCancel: this.handleCancel
   };
@@ -40,7 +52,7 @@ class EntranceFormE extends React.Component {
   setRegisterMode = () => {
     this.setState({
       dlgShow: true,
-      dlgTitle: "Register",
+      dlgTitle: "Sign up",
       dlgHandleOk: this.handleRegister,
       dlgHandleCancel: this.handleCancel
     });
@@ -48,7 +60,7 @@ class EntranceFormE extends React.Component {
   setLoginMode = () => {
     this.setState({
       dlgShow: true,
-      dlgTitle: "Login",
+      dlgTitle: "Sign in",
       dlgHandleOk: this.handleLogin,
       dlgHandleCancel: this.handleCancel
     });
@@ -64,7 +76,7 @@ class EntranceFormE extends React.Component {
 
   handleRegister = ({ login, password }) => {
     if (login.trim() && password.trim()) {
-      this.props.onLogin(login, password);
+      this.props.onRegister(login, password);
       this.props.router.push("/posts");
       //history.push("/posts");
     }
@@ -81,10 +93,10 @@ class EntranceFormE extends React.Component {
         </div>
         <style.CenteredButtonToolbar>
           <style.BigButton onClick={this.setLoginMode} size="lg">
-            Login
+            Sign in
           </style.BigButton>
           <style.BigButton onClick={this.setRegisterMode} size="lg">
-            Register
+            Sign up
           </style.BigButton>
         </style.CenteredButtonToolbar>
         <LoginForm

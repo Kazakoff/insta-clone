@@ -4,10 +4,6 @@ import {
   LOAD_POSTS,
   CLEAR_POSTS
 } from "../Data/ActionsTypes";
-import postList from "../Data/PostList";
-import postslist from "../Data/PostList";
-
-const Init_list = postslist["V.K@vstu.by"];
 
 function posts(state = [], action) {
   console.log("post reducer");

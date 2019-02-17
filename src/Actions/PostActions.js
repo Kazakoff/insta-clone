@@ -32,3 +32,10 @@ export const deletePost = dataTime => ({
     dataTime
   }
 });
+
+export const addLike = dataTime => ({
+  type: DELETE_POST,
+  payload: {
+    dataTime
+  }
+});

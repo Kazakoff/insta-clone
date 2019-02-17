@@ -11,7 +11,8 @@ import posts from "./Data/PostList";
 const user = "V.K@vstu.by";
 const defaultState = {
   posts: [],
-  user: ""
+  user: "",
+  wall: ""
 };
 
 export const history = createHistory();

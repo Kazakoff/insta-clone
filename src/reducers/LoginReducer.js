@@ -1,13 +1,11 @@
-import { GET_USER } from "../Data/ActionsTypes";
+import { GET_USER, REG_USER } from "../Data/ActionsTypes";
 
-function user(state = "V.K@vstu.by", action) {
+function user(state = "", action) {
   console.log(action);
+  let st = Object({}, state);
   switch (action.type) {
     case GET_USER:
-      let st = Object({}, state);
-      console.log(st);
       st = action.payload.login;
-      console.log(st);
       return st;
     default:
       return state;
