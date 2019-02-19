@@ -1,5 +1,4 @@
 import React from "react";
-import { PageHeader } from "react-bootstrap";
 import { connect } from "react-redux";
 import { createPost } from "../../Actions/PostActions";
 
@@ -11,7 +10,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-class AddPostFormE extends React.Component {
+class AddPostFormRaw extends React.Component {
   constructor(props) {
     super(props);
     this.state = { text: "", picURL: "" };
@@ -66,5 +65,5 @@ class AddPostFormE extends React.Component {
 const AddPostForm = connect(
   null,
   mapDispatchToProps
-)(AddPostFormE);
+)(AddPostFormRaw);
 export default AddPostForm;

@@ -6,7 +6,6 @@ import { loadPost, clearPost } from "../../Actions/PostActions";
 import posts from "../../Data/PostList";
 import emailPropType from "email-prop-type";
 import PropTypes from "prop-types";
-//import "bootstrap/dist/css/bootstrap.css";
 import "./Login.css";
 import LoginForm from "./LoginForm";
 import logoimg from "../../img/logo.png";
@@ -41,7 +40,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-class EntranceFormE extends React.Component {
+class EntranceFormRaw extends React.Component {
   state = {
     dlgShow: false,
     dlgTitle: "Sign up",
@@ -70,7 +69,6 @@ class EntranceFormE extends React.Component {
     if (login.trim() && password.trim()) {
       this.props.onLogin(login, password);
       this.props.router.push("/posts");
-      //history.push("/posts");
     }
   };
 
@@ -78,7 +76,6 @@ class EntranceFormE extends React.Component {
     if (login.trim() && password.trim()) {
       this.props.onRegister(login, password);
       this.props.router.push("/posts");
-      //history.push("/posts");
     }
   };
   handleCancel = () => {
@@ -109,7 +106,7 @@ class EntranceFormE extends React.Component {
     );
   }
 }
-EntranceFormE.propTypes = {
+EntranceFormRaw.propTypes = {
   dlgHandleOk: PropTypes.func,
   dlgHandleCancel: PropTypes.func,
   login: emailPropType.isRequired,
@@ -120,5 +117,5 @@ EntranceFormE.propTypes = {
 const EntranceForm = connect(
   mapStateToProps,
   mapDispatchToProps
-)(EntranceFormE);
+)(EntranceFormRaw);
 export default EntranceForm;

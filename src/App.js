@@ -6,7 +6,6 @@ import AddPostForm from "./components/AddPostForm";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as PostActions from "./Actions/PostActions";
-import posts from "./Data/PostList";
 
 function mapStateToProps(state) {
   return {
@@ -19,18 +18,14 @@ function mapDispachToProps(dispatch) {
   return bindActionCreators(PostActions, dispatch);
 }
 
-// create an object for the default data
-// const user = "V.K@vstu.by";
-
 class Main extends Component {
   componentDidMount() {
     console.log(this.props);
-    // this.props.loadPost(posts[this.props.user]);
   }
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header user={this.props.user} />
         <AddPostForm />
         <Wall />
       </div>

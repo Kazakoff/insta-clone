@@ -1,7 +1,6 @@
 import React from "react";
 import { ButtonToolbar, Button } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
-import { css, jsx } from "@emotion/core";
 import emailPropType from "email-prop-type";
 import PropTypes from "prop-types";
 import "./Login.css";

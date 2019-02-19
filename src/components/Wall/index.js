@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import "./Wall.css";
+import React from "react";
 import Post from "../Post";
 import { ListGroup } from "react-bootstrap";
 import { connect } from "react-redux";
@@ -19,7 +18,7 @@ function mapDispachToProps(dispatch) {
   };
 }
 
-function WallE({ posts, onDelete }) {
+function WallRaw({ posts, onDelete }) {
   return (
     <ListGroup>
       {posts.slice(0).map(post => (
@@ -32,6 +31,6 @@ function WallE({ posts, onDelete }) {
 const Wall = connect(
   mapStateToProps,
   mapDispachToProps
-)(WallE);
+)(WallRaw);
 
 export default Wall;

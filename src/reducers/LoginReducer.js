@@ -1,4 +1,4 @@
-import { GET_USER, REG_USER } from "../Data/ActionsTypes";
+import { GET_USER } from "../Data/ActionsTypes";
 
 function user(state = "", action) {
   console.log(action);
