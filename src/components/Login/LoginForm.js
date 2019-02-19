@@ -24,7 +24,6 @@ class LoginForm extends React.Component {
   };
 
   handleCancel = () => {
-    console.log(this.state);
     this.props.handleCancel(this.state);
   };
 

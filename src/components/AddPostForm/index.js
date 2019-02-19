@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createPost } from "../../Actions/PostActions";
+import PropTypes from "prop-types";
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -17,11 +18,7 @@ class AddPostFormRaw extends React.Component {
   }
 
   handleTextChange = event => {
-    this.setState({ text: event.target.value });
-  };
-
-  handlePicURLChange = event => {
-    this.setState({ picURL: event.target.value });
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   handleReset = e => {
@@ -31,7 +28,6 @@ class AddPostFormRaw extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     if (this.state.text.trim()) {
-      console.log(this.state);
       this.props.onAddPost(this.state);
       this.handleReset();
       event.preventDefault();
@@ -44,6 +40,7 @@ class AddPostFormRaw extends React.Component {
           Text:
           <input
             type="text"
+            name="text"
             value={this.state.text}
             onChange={this.handleTextChange}
           />
@@ -52,8 +49,9 @@ class AddPostFormRaw extends React.Component {
           picture URL:
           <input
             type="text"
+            name="picURL"
             value={this.state.picURL}
-            onChange={this.handlePicURLChange}
+            onChange={this.handleTextChange}
           />
         </label>
         <input type="submit" value="Submit" />
@@ -62,8 +60,13 @@ class AddPostFormRaw extends React.Component {
   }
 }
 
+AddPostFormRaw.propTypes = {
+  onAddPost: PropTypes.func
+};
+
 const AddPostForm = connect(
   null,
   mapDispatchToProps
 )(AddPostFormRaw);
+
 export default AddPostForm;

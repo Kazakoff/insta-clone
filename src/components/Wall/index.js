@@ -3,6 +3,7 @@ import Post from "../Post";
 import { ListGroup } from "react-bootstrap";
 import { connect } from "react-redux";
 import { deletePost } from "../../Actions/PostActions";
+import PropTypes from "prop-types";
 
 function mapStateToProps(state) {
   return {
@@ -27,6 +28,11 @@ function WallRaw({ posts, onDelete }) {
     </ListGroup>
   );
 }
+
+WallRaw.propTypes = {
+  posts: PropTypes.array,
+  onDelete: PropTypes.func
+};
 
 const Wall = connect(
   mapStateToProps,

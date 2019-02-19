@@ -1,7 +1,6 @@
 import { GET_USER } from "../Data/ActionsTypes";
 
 function user(state = "", action) {
-  console.log(action);
   let st = Object({}, state);
   switch (action.type) {
     case GET_USER:

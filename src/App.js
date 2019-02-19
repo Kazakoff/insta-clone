@@ -19,9 +19,7 @@ function mapDispachToProps(dispatch) {
 }
 
 class Main extends Component {
-  componentDidMount() {
-    console.log(this.props);
-  }
+  componentDidMount() {}
   render() {
     return (
       <div className="App">

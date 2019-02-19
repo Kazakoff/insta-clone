@@ -2,6 +2,7 @@ import React from "react";
 import "./Post.css";
 import PropTypes from "prop-types";
 import { ListGroupItem } from "react-bootstrap";
+import styled from "@emotion/styled";
 
 const Post = ({ post, onDelete }) => {
   return (

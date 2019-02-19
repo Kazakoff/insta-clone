@@ -6,10 +6,8 @@ import {
 } from "../Data/ActionsTypes";
 
 function posts(state = [], action) {
-  console.log("post reducer");
   switch (action.type) {
     case LOAD_POSTS:
-      console.log("load");
       return state.concat(action.payload);
     case CLEAR_POSTS:
       return [];
