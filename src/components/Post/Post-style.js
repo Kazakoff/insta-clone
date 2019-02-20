@@ -1,5 +1,6 @@
-import styled, { css } from "react-emotion";
-/*
+import styled from "@emotion/styled";
+import { css } from "emotion";
+
 export const Post = css`
    {
     display: flex;
@@ -13,26 +14,26 @@ export const Post = css`
   }
 `;
 
-export const  Post-user  {
-  display: flex;
-  padding: 16px;
-  align-items: center;
-}
-.Post-user-avatar {
-  width: 30px;
-  height: 30px;
-}
-.Post-user-avatar img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}
-
-.Post-image img {
-  display: flex;
-  width: 100%;
-}
-.Post-caption {
-  padding: 16px 16px;
-}
-*/
+export const PostUser = css`
+   {
+    display: flex;
+    padding: 16px;
+    align-items: center;
+  }
+`;
+export const PostImage = styled.img`
+  width: 500%;
+  height: 500%;
+`;
+export const PostImageWraper = css`
+   {
+    display: flex;
+    align-content: center;
+    width: 50%;
+  }
+`;
+export const PostCaption = css`
+   {
+    padding: 16px 16px;
+  }
+`;

@@ -6,39 +6,10 @@ import { loadPost, clearPost } from "../../Actions/PostActions";
 import posts from "../../Data/PostList";
 import emailPropType from "email-prop-type";
 import PropTypes from "prop-types";
-import "./Login.css";
 import LoginForm from "./LoginForm";
 import logoimg from "../../img/logo.png";
 import * as style from "../../styles.js";
 import Roles from "../../Data/Roles";
-
-function mapStateToProps(state) {
-  return {
-    login: state.login,
-    password: state.password
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    onLogin: (login, password) => {
-      dispatch(getUser(login, password));
-      dispatch(clearPost());
-      dispatch(loadPost(posts[login]));
-    },
-    onRegister: (login, password) => {
-      dispatch(
-        regUser({
-          eMail: login,
-          firstName: login,
-          lastName: login,
-          delRequest: false,
-          role: Roles.USER
-        })
-      );
-    }
-  };
-}
 
 class EntranceFormRaw extends React.Component {
   state = {
@@ -106,6 +77,35 @@ class EntranceFormRaw extends React.Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    login: state.login,
+    password: state.password
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    onLogin: (login, password) => {
+      dispatch(getUser(login, password));
+      dispatch(clearPost());
+      dispatch(loadPost(posts[login]));
+    },
+    onRegister: (login, password) => {
+      dispatch(
+        regUser({
+          eMail: login,
+          firstName: login,
+          lastName: login,
+          delRequest: false,
+          role: Roles.USER
+        })
+      );
+    }
+  };
+}
+
 EntranceFormRaw.propTypes = {
   dlgHandleOk: PropTypes.func,
   dlgHandleCancel: PropTypes.func,
