@@ -36,7 +36,7 @@ class AddPostFormRaw extends React.Component {
   };
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <div>
         <label>
           Text:
           <input
@@ -55,8 +55,8 @@ class AddPostFormRaw extends React.Component {
             onChange={this.handleTextChange}
           />
         </label>
-        <input type="submit" value="Submit" />
-      </form>
+        <style.BigButton onClick={this.handleSubmit}>Add</style.BigButton>
+      </div>
     );
   }
 }

@@ -2,15 +2,14 @@ import styled from "@emotion/styled";
 import { css } from "emotion";
 
 const basicStyle = css`
-  display: flex;
   border-color: rgb(0, 60, 53);
   background-color: white !important;
 `;
 
 export const BigButton = styled.button`
    {
+    border-color: rgb(0, 60, 53);
     background-color: white !important;
-    border-color: rgb(82, 60, 53);
     font-weight: 700;
     text-decoration: none;
     user-select: none;
