@@ -22,14 +22,14 @@ export const PostUser = css`
   }
 `;
 export const PostImage = styled.img`
-  width: 500%;
-  height: 500%;
+  width: 100%;
+  height: 100%;
 `;
 export const PostImageWraper = css`
    {
     display: flex;
     align-content: center;
-    width: 50%;
+    width: 100%;
   }
 `;
 export const PostCaption = css`
