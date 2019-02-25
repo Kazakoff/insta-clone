@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { getUser } from "../../Actions/UserActions";
 import { regUser } from "../../Actions/UsersListActions";
 import { loadPost, clearPost } from "../../Actions/PostActions";
-import posts from "../../Data/PostList";
 import emailPropType from "email-prop-type";
 import PropTypes from "prop-types";
 import LoginForm from "./LoginForm";
@@ -90,7 +89,7 @@ function mapDispatchToProps(dispatch) {
     onLogin: (login, password) => {
       dispatch(getUser(login, password));
       dispatch(clearPost());
-      dispatch(loadPost(posts[login]));
+      dispatch(loadPost(login));
     },
     onRegister: (login, password) => {
       dispatch(
