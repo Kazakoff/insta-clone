@@ -5,7 +5,17 @@ import {
   CLEAR_POSTS
 } from "../Data/ActionsTypes";
 
-function posts(state = [], action) {
+export function postsIsLoading(state = true, action) {
+  console.log(action);
+  switch (action.type) {
+    case "POSTS_IS_LOADING":
+      return action.postsIsLoading;
+    default:
+      return state;
+  }
+}
+
+export function posts(state = [], action) {
   switch (action.type) {
     case LOAD_POSTS:
       return state.concat(action.payload);
@@ -19,5 +29,3 @@ function posts(state = [], action) {
       return state;
   }
 }
-
-export default posts;

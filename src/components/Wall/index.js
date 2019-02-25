@@ -7,7 +7,8 @@ import PropTypes from "prop-types";
 
 function mapStateToProps(state) {
   return {
-    posts: state.posts
+    posts: state.posts,
+    postsIsLoading: state.postIsLoading
   };
 }
 
@@ -19,19 +20,26 @@ function mapDispachToProps(dispatch) {
   };
 }
 
-function WallRaw({ posts, onDelete }) {
-  return (
-    <ListGroup>
-      {posts.slice(0).map(post => (
-        <Post key={post.dataTime.toString()} post={post} onDelete={onDelete} />
-      ))}
-    </ListGroup>
-  );
+function WallRaw({ postsIsLoading, posts, onDelete }) {
+  if (!postsIsLoading) return <div> Loading...</div>;
+  else
+    return (
+      <ListGroup>
+        {posts.slice(0).map(post => (
+          <Post
+            key={post.dataTime.toString()}
+            post={post}
+            onDelete={onDelete}
+          />
+        ))}
+      </ListGroup>
+    );
 }
 
 WallRaw.propTypes = {
   posts: PropTypes.array,
-  onDelete: PropTypes.func
+  onDelete: PropTypes.func,
+  postsIsLoading: PropTypes.bool
 };
 
 const Wall = connect(

@@ -11,6 +11,7 @@ export const createPost = ({ text, picURL }) => ({
   type: ADD_POST,
   payload: {
     dataTime: new Date(),
+    // ошибка! пользователь из сторе
     user: userslist["V.K@vstu.by"],
     likes: {},
     content: text,
@@ -18,15 +19,18 @@ export const createPost = ({ text, picURL }) => ({
   }
 });
 
-/*export const loadPost = posts => ({
-  type: LOAD_POSTS,
-  payload: posts
+export const postsIsLoading = status => ({
+  type: "POSTS_IS_LOADING",
+  payload: {
+    postsIsLoading: status
+  }
 });
-*/
+
 export const loadPost = login => dispatch => {
   setTimeout(() => {
-    console.log("I got tracks");
     dispatch({ type: LOAD_POSTS, payload: posts[login] });
+    console.log("feeeeeetch!");
+    dispatch(postsIsLoading(true));
   }, 2000);
 };
 
