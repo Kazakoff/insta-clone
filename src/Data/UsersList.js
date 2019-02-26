@@ -9,7 +9,7 @@ let userslist = {
     role: Roles.ADMIN
   },
   "I.I@vstu.by": {
-    eMail: "V.K@vstu.by",
+    eMail: "I.I@vstu.by",
     firstName: "Ivan",
     lastName: "Ivanoff",
     delRequest: false,
