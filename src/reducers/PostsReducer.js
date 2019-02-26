@@ -6,10 +6,10 @@ import {
 } from "../Data/ActionsTypes";
 
 export function postsIsLoading(state = true, action) {
-  console.log(action);
   switch (action.type) {
     case "POSTS_IS_LOADING":
-      return action.postsIsLoading;
+      console.log(action);
+      return action.payload.postsIsLoading;
     default:
       return state;
   }

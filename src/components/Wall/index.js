@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 function mapStateToProps(state) {
   return {
     posts: state.posts,
-    postsIsLoading: state.postIsLoading
+    postsIsLoading: state.postsIsLoading
   };
 }
 
