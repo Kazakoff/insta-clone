@@ -8,14 +8,14 @@ import * as style from "./Post-style.js";
 const Post = ({ post, onDelete }) => {
   return (
     <ListGroupItem className={style.Post}>
-      <div className={style.PostImageWraper}>
+      <style.PostImageWraper>
         {post.pic !== "" ? (
           <style.PostImage alt={post.caption} src={post.pic} />
         ) : (
           ""
         )}
-      </div>
-      <div className={style.PostCaption}>{post.content}</div>
+      </style.PostImageWraper>
+      <style.PostCaption>{post.content}</style.PostCaption>
       <button
         className="btn btn-danger"
         onClick={() => onDelete(post.dataTime)}

@@ -25,15 +25,16 @@ export const PostImage = styled.img`
   width: 100%;
   height: 100%;
 `;
-export const PostImageWraper = css`
+export const PostImageWraper = styled.div`
    {
     display: flex;
     align-content: center;
     width: 100%;
   }
 `;
-export const PostCaption = css`
+export const PostCaption = styled.div`
    {
     padding: 16px 16px;
+    color: red;
   }
 `;
