@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { ListGroupItem } from "react-bootstrap";
 // import styled from "@emotion/styled";
-import { css } from "@emotion/core";
+// import { css } from "@emotion/core";
 import * as style from "./Post-style.js";
 
 const Post = ({ post, onDelete }) => {
@@ -27,7 +27,10 @@ const Post = ({ post, onDelete }) => {
 };
 
 Post.propTypes = {
-  post: PropTypes.string,
+  post: React.PropTypes.shape({
+    pic: React.PropTypes.string,
+    caption: React.PropTypes.string
+  }),
   onDelete: PropTypes.func
 };
 

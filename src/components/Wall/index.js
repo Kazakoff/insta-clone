@@ -4,6 +4,7 @@ import { ListGroup } from "react-bootstrap";
 import { connect } from "react-redux";
 import { deletePost } from "../../Actions/PostActions";
 import PropTypes from "prop-types";
+import PostErrorCather from "../ErrorCather";
 
 function mapStateToProps(state) {
   return {
@@ -26,11 +27,13 @@ function WallRaw({ postsIsLoading, posts, onDelete }) {
     return (
       <ListGroup>
         {posts.slice(0).map(post => (
-          <Post
-            key={post.dataTime.toString()}
-            post={post}
-            onDelete={onDelete}
-          />
+          <PostErrorCather>
+            <Post
+              key={post.dataTime.toString()}
+              post={post}
+              onDelete={onDelete}
+            />
+          </PostErrorCather>
         ))}
       </ListGroup>
     );
