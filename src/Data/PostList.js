@@ -7,7 +7,7 @@ let postslist = {
       likes: {
         "I.I@vstu.by": userslist["I.I@vstu.by"]
       },
-      content: "Admin is heer",
+      content: { ddd: "Admin is heer" },
       pic: "http://isap.vstu.by/application/files/6915/4356/5692/kazakov.JPG"
     },
     {

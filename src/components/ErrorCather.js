@@ -1,4 +1,5 @@
 import React from "react";
+import Post from "../components/Post";
 
 class PostErrorCather extends React.Component {
   constructor(props) {
@@ -14,10 +15,11 @@ class PostErrorCather extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div>
-          <h1>Ошибка при загрузке поста!</h1>
-          <p> {this.state.errorInfo} </p>
-        </div>
+        <Post
+          key={new Date()}
+          post={{ content: "Bad post", pic: "" }}
+          onDelete={undefined}
+        />
       );
     }
     return this.props.children;

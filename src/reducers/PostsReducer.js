@@ -8,7 +8,6 @@ import {
 export function postsIsLoading(state = true, action) {
   switch (action.type) {
     case "POSTS_IS_LOADING":
-      console.log(action);
       return action.payload.postsIsLoading;
     default:
       return state;

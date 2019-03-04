@@ -16,20 +16,24 @@ const Post = ({ post, onDelete }) => {
         )}
       </style.PostImageWraper>
       <style.PostCaption>{post.content}</style.PostCaption>
-      <button
-        className="btn btn-danger"
-        onClick={() => onDelete(post.dataTime)}
-      >
-        Remove
-      </button>
+      {onDelete ? (
+        <button
+          className="btn btn-danger"
+          onClick={() => onDelete(post.dataTime)}
+        >
+          Remove
+        </button>
+      ) : (
+        ""
+      )}
     </ListGroupItem>
   );
 };
 
 Post.propTypes = {
-  post: React.PropTypes.shape({
-    pic: React.PropTypes.string,
-    caption: React.PropTypes.string
+  post: PropTypes.shape({
+    pic: PropTypes.string,
+    caption: PropTypes.string
   }),
   onDelete: PropTypes.func
 };

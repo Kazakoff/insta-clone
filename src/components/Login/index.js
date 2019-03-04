@@ -90,7 +90,6 @@ function mapDispatchToProps(dispatch) {
     onLogin: (login, password) => {
       dispatch(getUser(login, password));
       dispatch(clearPost());
-      console.log("loading - false");
       dispatch(postsIsLoading(false));
       dispatch(loadPost(login));
     },

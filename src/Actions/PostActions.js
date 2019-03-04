@@ -29,7 +29,6 @@ export const postsIsLoading = status => ({
 export const loadPost = login => dispatch => {
   setTimeout(() => {
     dispatch({ type: LOAD_POSTS, payload: posts[login] });
-    console.log("feeeeeetch!");
     dispatch(postsIsLoading(true));
   }, 2000);
 };
