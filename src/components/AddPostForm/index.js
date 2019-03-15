@@ -31,7 +31,6 @@ class AddPostFormRaw extends React.Component {
     if (this.state.text.trim()) {
       this.props.onAddPost(this.state);
       this.handleReset();
-      event.preventDefault();
     }
   };
   render() {
