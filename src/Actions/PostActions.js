@@ -33,7 +33,7 @@ export const loadPost = login => dispatch => {
   }, 2000);
 };
 
-export const clearPost = posts => ({
+export const clearPost = () => ({
   type: CLEAR_POSTS
 });
 
