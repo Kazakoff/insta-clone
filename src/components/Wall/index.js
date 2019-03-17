@@ -24,8 +24,6 @@ function mapDispachToProps(dispatch) {
 function WallRaw({ postsIsLoading, posts, onDelete }) {
   if (!postsIsLoading) return <div> Loading...</div>;
   else {
-    console.log("!!!!!!!");
-    console.log(posts);
     return (
       <ListGroup>
         {posts.slice(0).map(post => (
