@@ -6,9 +6,15 @@ import * as style from "../../styles.js";
 
 function mapDispatchToProps(dispatch) {
   return {
-    onAddPost: post => {
-      dispatch(createPost(post));
+    onAddPost: (state, user) => {
+      dispatch(createPost(state, user));
     }
+  };
+}
+
+function mapStateToProps(state) {
+  return {
+    user: state.user
   };
 }
 
@@ -29,7 +35,7 @@ class AddPostFormRaw extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     if (this.state.text.trim()) {
-      this.props.onAddPost(this.state);
+      this.props.onAddPost(this.state, this.props.user);
       this.handleReset();
     }
   };
@@ -65,7 +71,7 @@ AddPostFormRaw.propTypes = {
 };
 
 const AddPostForm = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(AddPostFormRaw);
 

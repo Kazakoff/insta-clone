@@ -8,14 +8,14 @@ import PropTypes from "prop-types";
 const Header = ({ user }) => {
   return (
     <PageHeader>
-      <nav className="header-logo">
+      <div className="header-logo">
         <a href="/">
           <img className="logo" src={logo} alt="logo" />
         </a>
-      </nav>
-      <nav className="header-title"> Instagram </nav>
+      </div>
+      <div className="header-title"> Instagram </div>
       <Link to="/login">Выход </Link>
-      <nav className="header-user"> {user} </nav>
+      <div className="header-user"> {user} </div>
     </PageHeader>
   );
 };
