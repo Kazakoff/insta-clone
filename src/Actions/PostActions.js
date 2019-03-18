@@ -7,12 +7,12 @@ import {
 import userslist from "../Data/UsersList";
 import posts from "../Data/PostList";
 
-export const createPost = ({ text, picURL }) => ({
+export const createPost = ({ text, picURL }, user) => ({
   type: ADD_POST,
   payload: {
     dataTime: new Date(),
     // ошибка! пользователь из сторе
-    user: userslist["V.K@vstu.by"],
+    user: userslist[user],
     likes: {},
     content: text,
     pic: picURL
