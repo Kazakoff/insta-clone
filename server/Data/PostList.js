@@ -37,5 +37,23 @@ module.exports.postslist = {
       content: "Ivan`s first post",
       pic: "http://isap.vstu.by/application/files/2015/4582/2666/news.JPG"
     }
+  ],
+  id: [
+    {
+      dataTime: new Date(2018, 12, 15, 16, 31, 20),
+      user: userslist["I.I@vstu.by"],
+      likes: {},
+      content: "I am heer",
+      pic: ""
+    },
+    {
+      dataTime: new Date(2018, 12, 15, 16, 36, 20),
+      user: userslist["I.I@vstu.by"],
+      likes: {
+        "V.K@vstu.by": userslist["V.K@vstu.by"]
+      },
+      content: "Ivan`s first post",
+      pic: "http://isap.vstu.by/application/files/2015/4582/2666/news.JPG"
+    }
   ]
 };
