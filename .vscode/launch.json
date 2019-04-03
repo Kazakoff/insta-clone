@@ -6,9 +6,9 @@
   "configurations": [
     {
       "type": "node",
-      "request": "attach",
-      "name": "Attach",
-      "port": 4000
+      "request": "launch",
+      "name": "launch-node",
+      "program": "${workspaceRoot}\\server\\server.js",
     },
     {
       "type": "chrome",
