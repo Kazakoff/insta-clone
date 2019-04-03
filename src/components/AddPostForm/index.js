@@ -1,8 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
-import { createPost } from "../../Actions/PostActions";
-import PropTypes from "prop-types";
-import * as style from "../../styles.js";
+import React from 'react';
+import { connect } from 'react-redux';
+import { createPost } from '../../Actions/PostActions';
+import PropTypes from 'prop-types';
+import * as style from '../../styles.js';
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -21,7 +21,7 @@ function mapStateToProps(state) {
 class AddPostFormRaw extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { text: "", picURL: "" };
+    this.state = { text: '', picURL: '' };
   }
 
   handleTextChange = event => {
@@ -29,7 +29,7 @@ class AddPostFormRaw extends React.Component {
   };
 
   handleReset = e => {
-    this.setState({ text: "", picURL: "" });
+    this.setState({ text: '', picURL: '' });
   };
 
   handleSubmit = event => {
@@ -44,12 +44,7 @@ class AddPostFormRaw extends React.Component {
       <div>
         <label>
           Text:
-          <input
-            type="text"
-            name="text"
-            value={this.state.text}
-            onChange={this.handleTextChange}
-          />
+          <input type="text" name="text" value={this.state.text} onChange={this.handleTextChange} />
         </label>
         <label>
           picture URL:
