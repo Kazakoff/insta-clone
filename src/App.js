@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import Header from "./components/Header";
-import Wall from "./components/Wall";
-import AddPostForm from "./components/AddPostForm";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import * as PostActions from "./Actions/PostActions";
+import React, { Component } from 'react';
+import Header from './components/Header';
+import Wall from './components/Wall';
+import AddPostForm from './components/AddPostForm';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as PostActions from './Actions/PostActions';
 
 function mapStateToProps(state) {
   return {
     posts: state.posts,
-    user: state.user
+    user: state.user,
   };
 }
 
@@ -31,7 +31,7 @@ class Main extends Component {
 }
 const App = connect(
   mapStateToProps,
-  mapDispachToProps
+  mapDispachToProps,
 )(Main);
 
 export default App;

@@ -7,13 +7,13 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "launch-node",
-      "program": "${workspaceRoot}\\server\\server.js",
+      "name": "serv-launch",
+      "program": "${workspaceRoot}\\server\\server.js"
     },
     {
       "type": "chrome",
       "request": "launch",
-      "name": "Launch Chrome against localhost",
+      "name": "client-launch",
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}"
     }

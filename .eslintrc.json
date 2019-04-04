@@ -1,7 +1,7 @@
 {
-    "parserOptions": {
-        "ecmaVersion": 6
-        },
-    "extends": ["react-app", "prettier"],
-    "plugins": ["prettier"]
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "extends": ["airbnb-base"],
+  "plugins": ["import"]
 }

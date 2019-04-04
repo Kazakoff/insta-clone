@@ -20,7 +20,7 @@ class PostErrorCather extends React.Component {
           post={{ content: "Bad post", pic: "" }}
           onDelete={undefined}
         />
-      );
+      ); 
     }
     return this.props.children;
   }
