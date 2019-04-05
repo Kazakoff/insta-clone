@@ -1,8 +1,8 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { createPost } from '../../Actions/PostActions';
-import PropTypes from 'prop-types';
-import * as style from '../../styles.js';
+import React from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { createPost } from "../../Actions/PostActions";
+import * as style from "../../styles";
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -21,15 +21,15 @@ function mapStateToProps(state) {
 class AddPostFormRaw extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { text: '', picURL: '' };
+    this.state = { text: "", picURL: "" };
   }
 
   handleTextChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleReset = e => {
-    this.setState({ text: '', picURL: '' });
+  handleReset = () => {
+    this.setState({ text: "", picURL: "" });
   };
 
   handleSubmit = event => {
@@ -62,7 +62,8 @@ class AddPostFormRaw extends React.Component {
 }
 
 AddPostFormRaw.propTypes = {
-  onAddPost: PropTypes.func
+  onAddPost: PropTypes.func,
+  user: PropTypes.string
 };
 
 const AddPostForm = connect(

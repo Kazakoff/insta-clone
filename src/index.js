@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { Router, Route, IndexRedirect } from "react-router";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { Provider } from "react-redux";
 import store, { history } from "./store";
-import { Router, Route, IndexRedirect } from "react-router";
 import EntranceForm from "./components/Login";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap-theme.css";

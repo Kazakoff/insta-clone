@@ -1,6 +1,6 @@
 import Roles from "./Roles";
 
-let userslist = {
+const userslist = {
   "V.K@vstu.by": {
     eMail: "V.K@vstu.by",
     firstName: "Vad",

@@ -1,9 +1,9 @@
 import React from "react";
-import Post from "../Post";
+import PropTypes from "prop-types";
 import { ListGroup } from "react-bootstrap";
 import { connect } from "react-redux";
 import { deletePost } from "../../Actions/PostActions";
-import PropTypes from "prop-types";
+import Post from "../Post";
 import PostErrorCather from "../ErrorCather";
 
 function mapStateToProps(state) {
@@ -25,17 +25,13 @@ function WallRaw({ postsIsLoading, posts, onDelete }) {
   if (!postsIsLoading) return <div> Loading...</div>;
   else {
     return (
-      <ListGroup>
-        {posts.slice(0).map(post => (
-          <PostErrorCather>
-            <Post
-              key={post.dataTime.toString()}
-              post={post}
-              onDelete={onDelete}
-            />
-          </PostErrorCather>
-        ))}
-      </ListGroup>
+      <PostErrorCather>
+        <ListGroup>
+          {posts.slice(0).map(post => (
+            <Post key={post.dataTime.toString()} post={post} onDelete={onDelete} />
+          ))}
+        </ListGroup>
+      </PostErrorCather>
     );
   }
 }

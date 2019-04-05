@@ -7,6 +7,6 @@ export const CLEAR_POSTS = "CLEAR_POSTS";
 // login actions
 export const GET_USER = "GET_USER";
 
-// usets list actions
+// users list actions
 export const REG_USER = "REG_USER";
 export const DEL_USER = "DEL_USER";

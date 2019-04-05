@@ -1,5 +1,6 @@
 import userslist from "./UsersList";
-let postslist = {
+
+const postslist = {
   "V.K@vstu.by": [
     {
       dataTime: new Date(2018, 12, 15, 16, 31, 20),
