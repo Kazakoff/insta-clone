@@ -1,9 +1,4 @@
-import {
-  ADD_POST,
-  DELETE_POST,
-  LOAD_POSTS,
-  CLEAR_POSTS
-} from "../Data/ActionsTypes";
+import { LIKE_POST, ADD_POST, DELETE_POST, LOAD_POSTS, CLEAR_POSTS } from "../Data/ActionsTypes";
 import userslist from "../Data/UsersList";
 import posts from "../Data/PostList";
 
@@ -11,7 +6,6 @@ export const createPost = ({ text, picURL }, user) => ({
   type: ADD_POST,
   payload: {
     dataTime: new Date(),
-    // ошибка! пользователь из сторе
     user: userslist[user],
     likes: {},
     content: text,
@@ -33,7 +27,7 @@ export const loadPost = login => dispatch => {
   }, 2000);
 };
 
-export const clearPost = () => ({
+export const clearPosts = () => ({
   type: CLEAR_POSTS
 });
 
@@ -45,7 +39,7 @@ export const deletePost = dataTime => ({
 });
 
 export const addLike = dataTime => ({
-  type: DELETE_POST,
+  type: LIKE_POST,
   payload: {
     dataTime
   }

@@ -1,55 +1,54 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import emailPropType from 'email-prop-type';
-import { getUser } from '../../Actions/UserActions';
-import { regUser } from '../../Actions/UsersListActions';
-import { postsIsLoading } from '../../Actions/PostActions';
-import { loadPost, clearPost } from '../../Actions/PostActions';
-import LoginForm from './LoginForm';
-import logoimg from '../../img/logo.png';
-import * as style from '../../styles.js';
-import Roles from '../../Data/Roles';
+import React from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import emailPropType from "email-prop-type";
+import { getUser } from "../../Actions/UserActions";
+import { regUser } from "../../Actions/UsersListActions";
+import { loadPost, clearPosts, postsIsLoading } from "../../Actions/PostActions";
+import LoginForm from "./LoginForm";
+import logoimg from "../../img/logo.png";
+import * as style from "../../styles";
+import Roles from "../../Data/Roles";
 
 class EntranceFormRaw extends React.Component {
   constructor() {
     super();
     this.state = {
       dlgShow: false,
-      dlgTitle: 'Sign up',
+      dlgTitle: "Sign up",
       dlgHandleOk: this.handleRegister,
-      dlgHandleCancel: this.handleCancel,
+      dlgHandleCancel: this.handleCancel
     };
   }
   setRegisterMode = () => {
     this.setState({
       dlgShow: true,
-      dlgTitle: 'Sign up',
+      dlgTitle: "Sign up",
       dlgHandleOk: this.handleRegister,
-      dlgHandleCancel: this.handleCancel,
+      dlgHandleCancel: this.handleCancel
     });
   };
 
   setLoginMode = () => {
     this.setState({
       dlgShow: true,
-      dlgTitle: 'Sign in',
+      dlgTitle: "Sign in",
       dlgHandleOk: this.handleLogin,
-      dlgHandleCancel: this.handleCancel,
+      dlgHandleCancel: this.handleCancel
     });
   };
 
   handleLogin = ({ login, password }) => {
     if (login.trim() && password.trim()) {
       this.props.onLogin(login, password);
-      this.props.router.push('/posts');
+      this.props.router.push("/posts");
     }
   };
 
   handleRegister = ({ login, password }) => {
     if (login.trim() && password.trim()) {
       this.props.onRegister(login, password);
-      this.props.router.push('/posts');
+      this.props.router.push("/posts");
     }
   };
 
@@ -85,7 +84,7 @@ class EntranceFormRaw extends React.Component {
 function mapStateToProps(state) {
   return {
     login: state.login,
-    password: state.password,
+    password: state.password
   };
 }
 
@@ -93,7 +92,7 @@ function mapDispatchToProps(dispatch) {
   return {
     onLogin: (login, password) => {
       dispatch(getUser(login, password));
-      dispatch(clearPost());
+      dispatch(clearPosts());
       dispatch(postsIsLoading(false));
       dispatch(loadPost(login));
     },
@@ -104,23 +103,25 @@ function mapDispatchToProps(dispatch) {
           firstName: login,
           lastName: login,
           delRequest: false,
-          role: Roles.USER,
-        }),
+          role: Roles.USER
+        })
       );
-    },
+    }
   };
 }
 
 EntranceFormRaw.propTypes = {
+  onLogin: PropTypes.func,
+  onRegister: PropTypes.func,
   dlgHandleOk: PropTypes.func,
   dlgHandleCancel: PropTypes.func,
   login: emailPropType.isRequired,
   password: PropTypes.string,
-  router: PropTypes.object.isRequired, //  если required то router подкидывается в props
+  router: PropTypes.object.isRequired //  если required то router подкидывается в props
 };
 
 const EntranceForm = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(EntranceFormRaw);
 export default EntranceForm;
