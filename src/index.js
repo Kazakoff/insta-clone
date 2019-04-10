@@ -1,18 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { Router, Route, IndexRedirect } from "react-router";
+import { Router, Route, IndexRedirect, browserHistory } from "react-router";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import store, { history } from "./store";
+import store from "./store";
 import EntranceForm from "./components/Login";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/css/bootstrap-theme.css";
-// import { Route, Link } from "react-router-dom";
 
 const router = (
   <Provider store={store}>
-    <Router history={history}>
+    <Router history={browserHistory}>
       <Route path="/">
         <IndexRedirect to="login" />
       </Route>
