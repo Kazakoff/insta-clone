@@ -5,9 +5,6 @@ import { createHistory } from "history";
 import rootReducer from "./reducers/index";
 
 export const history = createHistory();
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
-);
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 export default store;

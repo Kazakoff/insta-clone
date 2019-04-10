@@ -14,7 +14,7 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispachToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
   return bindActionCreators(PostActions, dispatch);
 }
 
@@ -36,7 +36,7 @@ Main.propTypes = {
 
 const App = connect(
   mapStateToProps,
-  mapDispachToProps
+  mapDispatchToProps
 )(Main);
 
 export default App;
