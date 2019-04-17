@@ -1,9 +1,4 @@
-import {
-  ADD_POST,
-  DELETE_POST,
-  LOAD_POSTS,
-  CLEAR_POSTS
-} from "../Data/ActionsTypes";
+import { ADD_POST, DELETE_POST, LOAD_POSTS, CLEAR_POSTS } from "../Data/ActionsTypes";
 
 export function postsIsLoading(state = true, action) {
   switch (action.type) {
