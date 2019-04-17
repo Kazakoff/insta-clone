@@ -6,6 +6,7 @@
     "@emotion/core": "^10.0.7",
     "@emotion/styled": "^10.0.7",
     "bootstrap": "^3.4.0",
+    "cors": "^2.8.5",
     "email-prop-type": "^3.0.0",
     "emotion": "^10.0.6",
     "express": "^4.16.4",

@@ -22,9 +22,23 @@ export const postsIsLoading = status => ({
 
 export const loadPost = login => dispatch => {
   setTimeout(() => {
-    dispatch({ type: LOAD_POSTS, payload: posts[login] });
-    dispatch(postsIsLoading(true));
-  }, 2000);
+    return fetch(`http://localhost:4000/posts?userId=${login}`)
+      .then(response => response.json())
+      .then(
+        data => {
+          console.log("!!!!!!!");
+          console.log(data);
+          dispatch(postsIsLoading(true));
+          dispatch({ type: LOAD_POSTS, payload: data });
+        },
+        error => {
+          console.log("??????");
+          console.log(error);
+          dispatch(postsIsLoading(true));
+          dispatch({ type: LOAD_POSTS, payload: [] });
+        }
+      );
+  }, 200);
 };
 
 export const clearPosts = () => ({

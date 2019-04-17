@@ -1,4 +1,5 @@
 const userslist = require("./UsersList");
+
 module.exports.postslist = {
   "V.K@vstu.by": [
     {
@@ -7,7 +8,8 @@ module.exports.postslist = {
       likes: {
         "I.I@vstu.by": userslist["I.I@vstu.by"]
       },
-      content: { ddd: "Admin is heer" },
+      // content: { ddd: "Admin is heer" },  // error for didCatch  testing
+      content: "Admin is heer",
       pic: "http://isap.vstu.by/application/files/6915/4356/5692/kazakov.JPG"
     },
     {
