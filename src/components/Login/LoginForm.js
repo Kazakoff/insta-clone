@@ -28,27 +28,15 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <Modal
-        show={this.props.show}
-        centered="true"
-        onHide={this.props.handleCancel}
-      >
+      <Modal show={this.props.show} centered="true" onHide={this.props.handleCancel}>
         <Modal.Header closeButton />
         <label>
           Login:
-          <input
-            type="text"
-            value={this.state.login}
-            onChange={this.handleLoginChange}
-          />
+          <input type="text" value={this.state.login} onChange={this.handleLoginChange} />
         </label>
         <label>
           Password:
-          <input
-            type="text"
-            value={this.state.password}
-            onChange={this.handlePasswordChange}
-          />
+          <input type="text" value={this.state.password} onChange={this.handlePasswordChange} />
         </label>
         <div>
           <ButtonToolbar>
@@ -66,6 +54,10 @@ class LoginForm extends React.Component {
 }
 LoginForm.propTypes = {
   login: emailPropType.isRequired,
-  password: PropTypes.string
+  password: PropTypes.string,
+  show: PropTypes.bool,
+  title: PropTypes.string,
+  handleCancel: PropTypes.func,
+  handleOk: PropTypes.func
 };
 export default LoginForm;

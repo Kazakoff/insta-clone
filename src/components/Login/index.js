@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import emailPropType from "email-prop-type";
-import { getUser } from "../../Actions/UserActions";
+import getUser from "../../Actions/UserActions";
 import { regUser } from "../../Actions/UsersListActions";
 import { loadPost, clearPosts, postsIsLoading } from "../../Actions/PostActions";
 import LoginForm from "./LoginForm";
