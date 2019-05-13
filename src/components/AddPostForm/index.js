@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { createSelector } from "reselect";
 import { createPost } from "../../Actions/PostActions";
 import * as style from "../../styles";
 
@@ -12,9 +13,20 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
+const getUser = state => {
+  return state.user;
+};
+const getUserMemoized = createSelector(
+  getUser,
+  state => {
+    return state.user;
+  }
+);
+
 function mapStateToProps(state) {
   return {
-    user: state.user
+    // user: state.user
+    user: getUserMemoized(state)
   };
 }
 

@@ -2,13 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 import { ListGroup } from "react-bootstrap";
 import { connect } from "react-redux";
+import { createSelector } from "reselect";
 import { deletePost } from "../../Actions/PostActions";
 import Post from "../Post";
 import PostErrorCather from "../ErrorCather";
 
+const getPosts = state => state.posts;
+
+const getPostMemoized = createSelector(
+  getPosts,
+  state => state
+);
+
 function mapStateToProps(state) {
   return {
-    posts: state.posts,
+    posts: getPostMemoized(state),
     postsIsLoading: state.postsIsLoading
   };
 }
@@ -27,9 +35,13 @@ function WallRaw({ postsIsLoading, posts, onDelete }) {
     return (
       <PostErrorCather>
         <ListGroup>
-          {posts.slice(0).map(post => (
-            <Post key={post.dataTime.toString()} post={post} onDelete={onDelete} />
-          ))}
+          {posts ? (
+            posts
+              .slice(0)
+              .map(post => <Post key={post.dataTime.toString()} post={post} onDelete={onDelete} />)
+          ) : (
+            <div> Пока постов нет </div>
+          )}
         </ListGroup>
       </PostErrorCather>
     );
