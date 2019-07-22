@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import { PropTypes } from 'prop-types';
 import Post from './Wall/components/Post/index';
 
 class PostErrorCather extends React.Component {
@@ -21,10 +21,11 @@ class PostErrorCather extends React.Component {
     return this.props.children;
   }
 }
-PostErrorCather.propTypes = {
+/* PostErrorCather.propTypes = {
   children: PropTypes.Component
 };
 PostErrorCather.defaultProps = {
   children: []
 };
+*/
 export default PostErrorCather;

@@ -24,7 +24,7 @@ Wall.propTypes = {
   postsIsLoading: PropTypes.bool,
   posts: PropTypes.arrayOf(
     PropTypes.shape({
-      dataTime: PropTypes.dataTime.isRequired
+      dataTime: PropTypes.dataTime
     })
   )
 };

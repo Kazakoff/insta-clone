@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import React from 'react';
 import logoimg from '../../img/logo.png';
 import * as style from '../../styles';
