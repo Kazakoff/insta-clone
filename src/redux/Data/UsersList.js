@@ -1,6 +1,6 @@
-const Roles = require('./Roles');
+import Roles from './Roles';
 
-module.exports.userslist = {
+const userslist = {
   'V.K@vstu.by': {
     eMail: 'V.K@vstu.by',
     firstName: 'Vad',
@@ -16,3 +16,4 @@ module.exports.userslist = {
     role: Roles.USER
   }
 };
+export default userslist;

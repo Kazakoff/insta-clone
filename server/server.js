@@ -1,19 +1,18 @@
-const express = require("express");
-const cors = require("cors");
-const posts = require("./data/PostList");
-const users = require("./data/UsersList");
+const express = require('express');
+const cors = require('cors');
+const posts = require('./Data/PostList');
+const users = require('./Data/UsersList');
 
 const app = express();
 app.use(cors());
-app.use(function(request, response, next) {
-  console.log("Request!");
+app.use((request, response, next) => {
   next();
 });
-app.get("/users", function(request, response) {
+app.get('/users', (request, response) => {
   response.send(users);
 });
-app.get("/posts", function(request, response) {
-  let userId = request.query.userId;
+app.get('/posts', (request, response) => {
+  const { userId } = request.query;
   response.send(posts.postslist[userId]);
 });
 app.listen(4000);

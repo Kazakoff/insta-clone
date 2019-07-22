@@ -1,6 +1,6 @@
-const userslist = require('./UsersList');
+import userslist from './UsersList';
 
-module.exports.postslist = {
+const postslist = {
   'V.K@vstu.by': [
     {
       dataTime: new Date(2018, 12, 15, 16, 31, 20),
@@ -8,8 +8,7 @@ module.exports.postslist = {
       likes: {
         'I.I@vstu.by': userslist['I.I@vstu.by']
       },
-      // content: { ddd: "Admin is heer" },  // error for didCatch  testing
-      content: 'Admin is heer',
+      content: { ddd: 'Admin is heer' },
       pic: 'http://isap.vstu.by/application/files/6915/4356/5692/kazakov.JPG'
     },
     {
@@ -39,23 +38,6 @@ module.exports.postslist = {
       content: 'Ivan`s first post',
       pic: 'http://isap.vstu.by/application/files/2015/4582/2666/news.JPG'
     }
-  ],
-  id: [
-    {
-      dataTime: new Date(2018, 12, 15, 16, 31, 20),
-      user: userslist['I.I@vstu.by'],
-      likes: {},
-      content: 'I am heer',
-      pic: ''
-    },
-    {
-      dataTime: new Date(2018, 12, 15, 16, 36, 20),
-      user: userslist['I.I@vstu.by'],
-      likes: {
-        'V.K@vstu.by': userslist['V.K@vstu.by']
-      },
-      content: 'Ivan`s first post',
-      pic: 'http://isap.vstu.by/application/files/2015/4582/2666/news.JPG'
-    }
   ]
 };
+export default postslist;
