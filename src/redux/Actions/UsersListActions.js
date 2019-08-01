@@ -1,4 +1,4 @@
-import { REG_USER, DEL_USER } from '../Data/ActionsTypes';
+import { REG_USER, DEL_USER } from './ActionsTypes';
 
 export const delUser = login => ({
   type: DEL_USER,

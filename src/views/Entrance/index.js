@@ -1,7 +1,7 @@
 import React from 'react';
 import logoimg from '../../img/logo.png';
 import * as style from '../../styles';
-import RgLogContainer from './containers/RgLogContainer';
+import RgLogContainer from './containers/RegLogContainer';
 
 const EntranceView = () => (
   <div>

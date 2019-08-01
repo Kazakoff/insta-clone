@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import getUser from '../../../redux/Actions/UserActions';
+import { getUser } from '../../../redux/Actions/UserActions';
 import { regUser } from '../../../redux/Actions/UsersListActions';
 import { loadPost, clearPosts, postsIsLoading } from '../../../redux/Actions/PostActions';
 import RegLog from '../components/RegLog';
@@ -33,8 +33,9 @@ function mapDispatchToProps(dispatch) {
     }
   };
 }
-
-export default connect(
+const RegLogContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(RegLog);
+
+export default RegLogContainer;

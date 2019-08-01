@@ -1,6 +1,9 @@
+/** @jsx jsx */
 import React from 'react';
+import { jsx, css } from '@emotion/core';
 import PropTypes from 'prop-types';
 import emailPropType from 'email-prop-type';
+import styled from '@emotion/styled';
 import * as style from './styles';
 import LoginForm from '../../../shared/EntranceForm/LoginForm';
 
@@ -55,12 +58,8 @@ class RegLog extends React.Component {
     return (
       <div>
         <style.CenteredButtonToolbar>
-          <style.BigButton onClick={this.setLoginMode} size="lg">
-            Sign in
-          </style.BigButton>
-          <style.BigButton onClick={this.setRegisterMode} size="lg">
-            Sign up
-          </style.BigButton>
+          <style.BigButton onClick={this.setLoginMode}>Sign in</style.BigButton>
+          <style.BigButton onClick={this.setRegisterMode}>Sign up</style.BigButton>
         </style.CenteredButtonToolbar>
         <LoginForm
           handleOk={this.state.dlgHandleOk}
@@ -68,10 +67,18 @@ class RegLog extends React.Component {
           title={this.state.dlgTitle}
           show={this.state.dlgShow}
         />
+        <Container> This is lightgreen. </Container>
       </div>
     );
   }
 }
+// это работает с  BigButton не работает???
+const dynamicStyle = css`
+  color: blue;
+`;
+const Container = styled.div`
+  ${dynamicStyle};
+`;
 
 RegLog.propTypes = {
   onLogin: PropTypes.func.isRequired,

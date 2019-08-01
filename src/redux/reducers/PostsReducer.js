@@ -1,15 +1,6 @@
-import { ADD_POST, DELETE_POST, LOAD_POSTS, CLEAR_POSTS } from '../Data/ActionsTypes';
+import { ADD_POST, DELETE_POST, LOAD_POSTS, CLEAR_POSTS } from '../Actions/ActionsTypes';
 
-export function postsIsLoading(state = true, action) {
-  switch (action.type) {
-    case 'POSTS_IS_LOADING':
-      return action.payload.postsIsLoading;
-    default:
-      return state;
-  }
-}
-
-export function posts(state = [], action) {
+function posts(state = [], action) {
   switch (action.type) {
     case LOAD_POSTS:
       return state.concat(action.payload);
@@ -23,3 +14,5 @@ export function posts(state = [], action) {
       return state;
   }
 }
+
+export default posts;

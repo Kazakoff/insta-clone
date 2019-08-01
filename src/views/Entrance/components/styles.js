@@ -1,14 +1,17 @@
+/** @jsx jsx */
 import styled from '@emotion/styled';
-import { css } from 'emotion';
+import { jsx, css } from 'emotion';
+
+// border-color: rgb(23, 60, 53);
 
 export const basicStyle = css`
-  border-color: rgb(0, 60, 53);
-  background-color: white !important;
+  border-color: red;
+  background-color: red;
 `;
 
 export const BigButton = styled.button`
-  border-color: rgb(0, 60, 53);
-  background-color: white !important;
+  ${basicStyle};
+  background-color: red;
   font-weight: 700;
   text-decoration: none;
   user-select: none;
@@ -26,7 +29,7 @@ export const CenteredButtonToolbar = styled.div`
   justify-content: center;
   height: 100%;
 `;
-// composes: ${basicStyle};
+
 export const logo = css`
   display: flex;
   align-items: center;

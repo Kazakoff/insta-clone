@@ -4,7 +4,6 @@ import WallContainer from './Wall/containers/WallContainer';
 import AddPostFormContainer from './AddPostForm/containers/AddPostFormContainer';
 import PostErrorCather from './ErrorCather';
 
-
 class UserView extends Component {
   componentDidMount() {}
 

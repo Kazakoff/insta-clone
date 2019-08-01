@@ -1,4 +1,4 @@
-import { LIKE_POST, ADD_POST, DELETE_POST, LOAD_POSTS, CLEAR_POSTS } from '../Data/ActionsTypes';
+import { LIKE_POST, ADD_POST, DELETE_POST, LOAD_POSTS, CLEAR_POSTS } from './ActionsTypes';
 import userslist from '../Data/UsersList';
 
 export const createPost = ({ text, picURL }, user) => ({

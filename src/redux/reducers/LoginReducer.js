@@ -1,4 +1,4 @@
-import { GET_USER } from '../Data/ActionsTypes';
+import { GET_USER } from '../Actions/ActionsTypes';
 
 function user(state = '', action) {
   let st = Object({}, state);

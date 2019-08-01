@@ -1,4 +1,4 @@
-import { DEL_USER, REG_USER } from '../Data/ActionsTypes';
+import { DEL_USER, REG_USER } from '../Actions/ActionsTypes';
 import userslist from '../Data/UsersList';
 
 function users(state = userslist, action) {

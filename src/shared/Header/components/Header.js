@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageHeader } from 'react-bootstrap';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import '../Header.css';
 import PropTypes from 'prop-types';
 import logo from '../../../img/logo.png';

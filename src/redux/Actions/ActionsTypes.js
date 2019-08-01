@@ -4,6 +4,7 @@ export const DELETE_POST = 'DELETE_POST';
 export const LOAD_POSTS = 'LOAD_POSTS';
 export const CLEAR_POSTS = 'CLEAR_POSTS';
 export const LIKE_POST = 'LIKE_POST';
+export const POSTS_IS_LOADING = 'POSTS_IS_LOADING';
 
 // login actions
 export const GET_USER = 'GET_USER';
