@@ -9,6 +9,7 @@
     "cors": "^2.8.5",
     "email-prop-type": "^3.0.0",
     "emotion": "^10.0.6",
+    "emotion-theming": "^10.0.14",
     "express": "^4.16.4",
     "prop-types": "^15.7.2",
     "react": "^16.7.0",
