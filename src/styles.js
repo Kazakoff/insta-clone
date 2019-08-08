@@ -8,18 +8,25 @@ export const theme = {
     mainBackground: 'white'
   }
 };
+/*
+  @font-face {
+    font-family: 'Exo 2', sans-serif;
+    src: url('https://fonts.googleapis.com/css?family=Exo+2&display=swap');
+  }
+*/
 
 export const basicStyle = css`
   border-color: rgb(0, 60, 53);
-  background-color: white;
+  background-color: red;
 `;
 /*
     border-color: ${props => props.theme.colors.mainColor};
   background-color: ${props => props.theme.colors.mainBackground};
 */
+
 export const BigButton = styled.div`
   ${basicStyle};
-  font-weight: 700;
+  font-weight: 900;
   text-decoration: none;
   user-select: none;
   padding: 2em 2em;

@@ -6,6 +6,7 @@ import emailPropType from 'email-prop-type';
 import styled from '@emotion/styled';
 import * as style from './styles';
 import LoginForm from '../../../shared/EntranceForm/LoginForm';
+import Container from './st';
 
 class RegLog extends React.Component {
   constructor() {
@@ -72,13 +73,6 @@ class RegLog extends React.Component {
     );
   }
 }
-// это работает с  BigButton не работает???
-const dynamicStyle = css`
-  color: blue;
-`;
-const Container = styled.div`
-  ${dynamicStyle};
-`;
 
 RegLog.propTypes = {
   onLogin: PropTypes.func.isRequired,
