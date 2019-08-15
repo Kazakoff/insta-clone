@@ -1,12 +1,9 @@
-/** @jsx jsx */
 import React from 'react';
-import { jsx, css } from '@emotion/core';
 import PropTypes from 'prop-types';
 import emailPropType from 'email-prop-type';
-import styled from '@emotion/styled';
-import * as style from './styles';
+import { Button } from 'react-bootstrap';
 import LoginForm from '../../../shared/EntranceForm/LoginForm';
-import Container from './st';
+import './styles.scss';
 
 class RegLog extends React.Component {
   constructor() {
@@ -58,17 +55,20 @@ class RegLog extends React.Component {
   render() {
     return (
       <div>
-        <style.CenteredButtonToolbar>
-          <style.BigButton onClick={this.setLoginMode}>Sign in</style.BigButton>
-          <style.BigButton onClick={this.setRegisterMode}>Sign up</style.BigButton>
-        </style.CenteredButtonToolbar>
+        <div className="buttonBar">
+          <Button className="buttonBar__bigButton" onClick={this.setLoginMode}>
+            Sign in
+          </Button>
+          <Button className="buttonBar__bigButton" onClick={this.setRegisterMode}>
+            Sign up{' '}
+          </Button>
+        </div>
         <LoginForm
           handleOk={this.state.dlgHandleOk}
           handleCancel={this.state.dlgHandleCancel}
           title={this.state.dlgTitle}
           show={this.state.dlgShow}
         />
-        <Container> This is lightgreen. </Container>
       </div>
     );
   }

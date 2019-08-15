@@ -1,11 +1,11 @@
 import React from 'react';
 import logoimg from '../../img/logo.png';
-import * as style from '../../styles';
 import RgLogContainer from './containers/RegLogContainer';
+import './styles.scss';
 
 const EntranceView = () => (
   <div>
-    <div className={style.logo}>
+    <div className="entraceView__logo">
       <img src={logoimg} alt="logo" />
     </div>
     <RgLogContainer />

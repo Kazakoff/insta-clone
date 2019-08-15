@@ -1,0 +1,21 @@
+@import "../../../base-styles.scss";
+
+.buttonBar {
+  display: flex;
+  border-color: rgb(187, 73, 39);
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  &__bigButton {
+    font-weight: 900;
+    text-decoration: none;
+    background-color: $backgroudColor;
+    user-select: none;
+    padding: 2em 2em;
+    margin: 2em;
+    outline: none;
+    border: 2px solid;
+    border-radius: 2px;
+    transition: 0.2s;
+  }
+}

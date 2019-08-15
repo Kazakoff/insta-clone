@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as style from '../../../../styles';
+import { Button } from 'react-bootstrap';
+import './styles.scss';
 
 class AddPostForm extends React.Component {
   constructor(props) {
@@ -40,7 +41,9 @@ class AddPostForm extends React.Component {
             onChange={this.handleTextChange}
           />
         </label>
-        <style.BigButton onClick={this.handleSubmit}>Add</style.BigButton>
+        <Button classeName="addForm__bigButton" BigButton onClick={this.handleSubmit}>
+          Add
+        </Button>
       </div>
     );
   }
