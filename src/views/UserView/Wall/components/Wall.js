@@ -7,7 +7,7 @@ function Wall({ postsIsLoading, posts, onDelete }) {
   if (!postsIsLoading) return <div> Loading...</div>;
 
   return (
-    <ListGroup>
+    <ListGroup className="wall">
       {posts ? (
         posts
           .slice(0)

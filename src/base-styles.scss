@@ -1,4 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Play&display=swap");
+
 $backgroudColor: white;
 $borderColor: rgb(82, 60, 53);
 $borderColorAlert: red;
 $backgroudColorAlert: rgba(247, 187, 187, 0.856);
+
+body {
+  font-family: "Play";
+}

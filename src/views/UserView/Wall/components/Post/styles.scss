@@ -1,0 +1,38 @@
+@import "../../../../../base-styles.scss";
+.post {
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  border: 1px solid $borderColor;
+  background-color: $backgroudColor;
+  margin-left: 10%;
+  margin-right: 10%;
+
+  .headWraper {
+    margin: 20pt 0pt 20pt 0pt;
+    align-content: center;
+    width: 100%;
+    &__user {
+      align-content: right;
+    }
+    &__caption {
+      padding: 16px 16px;
+      align-content: left;
+    }
+  }
+  .imageWraper {
+    align-content: center;
+    &__image {
+      width: 100%;
+    }
+  }
+  .contentWraper {
+    align-content: left;
+    padding: 10px 5px 10px 5px;
+    width: 100%;
+  }
+  .controlsWraper {
+    align-content: center;
+    width: 100%;
+  }
+}

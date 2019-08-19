@@ -9,11 +9,13 @@ class UserView extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="userView">
         <PostErrorCather>
-          <HeaderContainer />
-          <AddPostFormContainer />
-          <WallContainer />
+          <HeaderContainer className="head" />
+          <div className="content">
+            <AddPostFormContainer />
+            <WallContainer />
+          </div>
         </PostErrorCather>
       </div>
     );

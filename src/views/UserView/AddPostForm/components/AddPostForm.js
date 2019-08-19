@@ -27,12 +27,12 @@ class AddPostForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <label>
+      <div className="addForm">
+        <label className="addForm__messageField">
           Text:
           <input type="text" name="text" value={this.state.text} onChange={this.handleTextChange} />
         </label>
-        <label>
+        <label className="addForm__picURLField">
           picture URL:
           <input
             type="text"
@@ -41,7 +41,7 @@ class AddPostForm extends React.Component {
             onChange={this.handleTextChange}
           />
         </label>
-        <Button classeName="addForm__bigButton" BigButton onClick={this.handleSubmit}>
+        <Button classeName="addForm__bigButton" onClick={this.handleSubmit}>
           Add
         </Button>
       </div>

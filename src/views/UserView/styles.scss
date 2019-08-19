@@ -1,0 +1,16 @@
+@import "../base-styles.scss";
+.userView {
+  display: flex;
+  flex-direction: column;
+}
+.head {
+  display: flex;
+  border-color: $borderColor;
+  border-bottom: 1px;
+  background-color: $backgroudColor;
+}
+.content {
+  display: flex;
+  border: 1px solid $borderColor;
+  background-color: $backgroudColor;
+}

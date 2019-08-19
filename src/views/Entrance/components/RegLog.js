@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import emailPropType from 'email-prop-type';
 import { Button } from 'react-bootstrap';
 import LoginForm from '../../../shared/EntranceForm/LoginForm';
@@ -37,14 +38,14 @@ class RegLog extends React.Component {
   handleLogin = ({ login, password }) => {
     if (login.trim() && password.trim()) {
       this.props.onLogin(login, password);
-      this.props.router.push('/posts');
+      this.props.history.push('/posts'); 
     }
   };
 
   handleRegister = ({ login, password }) => {
     if (login.trim() && password.trim()) {
       this.props.onRegister(login, password);
-      this.props.router.push('/posts');
+      this.props.history.push('/posts');
     }
   };
 
@@ -81,7 +82,7 @@ RegLog.propTypes = {
   dlgHandleCancel: PropTypes.func.isRequired,
   login: emailPropType.isRequired,
   password: PropTypes.string.isRequired,
-  router: PropTypes.object.isRequired //  если required то router подкидывается в props
+  history: PropTypes.objectOf().isRequired
 };
 
-export default RegLog;
+export default withRouter(RegLog);

@@ -1,19 +1,19 @@
+@import "../../../../base-styles.scss";
 .addForm {
   display: flex;
-  border-color: rgb(187, 73, 39);
   align-items: center;
   justify-content: center;
   height: 100%;
-  &__bigButton {
-    font-weight: 900;
-    text-decoration: none;
-    background-color: white;
-    user-select: none;
-    padding: 2em 2em;
-    margin: 2em;
-    outline: none;
-    border: 2px solid;
-    border-radius: 2px;
-    transition: 0.2s;
+  &__addButton {
+    border-radius: 1px;
+    padding: 2em;
+  }
+  &__messageField {
+    border-radius: 1px;
+    padding: 2em;
+  }
+  &__picURLField {
+    border-radius: 1px;
+    padding: 2em;
   }
 }

@@ -1,0 +1,10 @@
+@import "../../../base-styles.scss";
+.wall {
+  display: flex;
+  width: 70%;
+  border: 1px solid $borderColor;
+  background-color: #fff;
+  margin-bottom: 60px;
+  margin-left: 5%;
+  margin-right: 5%;
+}

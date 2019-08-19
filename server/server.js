@@ -16,4 +16,6 @@ app.get('/posts', (request, response) => {
   response.send(posts.postslist[userId]);
 });
 app.listen(4000);
+console.log('Server started');
+
 // http://localhost:4000/posts?userId=V.K%40vstu.by

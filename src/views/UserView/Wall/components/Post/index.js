@@ -1,23 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ListGroupItem } from 'react-bootstrap';
-// import styled from "@emotion/styled";
-// import { css } from "@emotion/core";
-import * as style from './Post-style';
+
+import './styles.scss';
 
 const Post = ({ post, onDelete }) => (
-  <ListGroupItem className={style.Post}>
-    <style.PostImageWraper>
-      {post.pic !== '' ? <style.PostImage alt={post.caption} src={post.pic} /> : ''}
-    </style.PostImageWraper>
-    <style.PostCaption>{post.content}</style.PostCaption>
-    {onDelete ? (
-      <button type="button" onClick={() => onDelete(post.dataTime)}>
-        Remove
-      </button>
-    ) : (
-      ''
-    )}
+  <ListGroupItem className="post">
+    <div className="headWraper">
+      <div className="post__caption">{post.dataTime}</div>
+    </div>
+    <div className="imageWraper">
+      {post.pic !== '' ? (
+        <img className="imageWraper__image" alt={post.caption} src={post.pic} />
+      ) : (
+        ''
+      )}
+    </div>
+    <div className="contentWraper">
+      <div className="post__caption">{post.content}</div>
+    </div>
+
+    <div className="controlsWraper">
+      {onDelete ? (
+        <button type="button" onClick={() => onDelete(post.dataTime)}>
+          Remove
+        </button>
+      ) : (
+        ''
+      )}
+    </div>
   </ListGroupItem>
 );
 
