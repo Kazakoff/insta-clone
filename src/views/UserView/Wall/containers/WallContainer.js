@@ -1,14 +1,7 @@
 import { connect } from 'react-redux';
-import { createSelector } from 'reselect';
 import { deletePost } from '../../../../redux/Actions/PostActions';
 import Wall from '../components/Wall';
-
-const getPosts = state => state.posts;
-
-const getPostMemoized = createSelector(
-  getPosts,
-  state => state
-);
+import { getPostMemoized } from '../../../../redux/selectors';
 
 function mapStateToProps(state) {
   return {
