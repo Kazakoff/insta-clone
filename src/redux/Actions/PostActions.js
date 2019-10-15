@@ -20,18 +20,22 @@ export const postsIsLoading = status => ({
 });
 
 export const loadPost = login => (dispatch) => {
-  setTimeout(() => fetch(`http://localhost:4000/posts?userId=${login}`)
-    .then(response => response.json())
-    .then(
-      (data) => {
-        dispatch(postsIsLoading(true));
-        dispatch({ type: LOAD_POSTS, payload: data });
-      },
-      (error) => {
-        dispatch(postsIsLoading(true));
-        dispatch({ type: LOAD_POSTS, payload: [] });
-      }
-    ), 200);
+  setTimeout(
+    () =>
+      fetch(`http://localhost:4000/posts?userId=${login}`)
+        .then(response => response.json())
+        .then(
+          (data) => {
+            dispatch(postsIsLoading(true));
+            dispatch({ type: LOAD_POSTS, payload: data });
+          },
+          (error) => {
+            dispatch(postsIsLoading(true));
+            dispatch({ type: LOAD_POSTS, payload: [] });
+          }
+        ),
+    200
+  );
 };
 
 export const clearPosts = () => ({
@@ -45,9 +49,10 @@ export const deletePost = dataTime => ({
   }
 });
 
-export const addLike = dataTime => ({
+export const likePost = (dataTime, currentUser) => ({
   type: LIKE_POST,
   payload: {
-    dataTime
+    dataTime,
+    currentUser
   }
 });

@@ -4,7 +4,7 @@ import { ListGroupItem } from 'react-bootstrap';
 
 import './styles.scss';
 
-const Post = ({ post, onDelete }) => (
+const Post = ({ post, onDelete, liked, onLike }) => (
   <ListGroupItem className="post">
     <div className="headWraper">
       <div className="post__caption">{post.dataTime}</div>
@@ -21,13 +21,20 @@ const Post = ({ post, onDelete }) => (
     </div>
 
     <div className="controlsWraper">
-      {onDelete ? (
-        <button type="button" onClick={() => onDelete(post.dataTime)}>
-          Remove
-        </button>
-      ) : (
-        ''
-      )}
+      <div className="post__button">
+        {onDelete ? (
+          <button type="button" onClick={() => onDelete(post.dataTime)}>
+            Remove
+          </button>
+        ) : (
+          ''
+        )}
+      </div>
+      <div className={liked ? 'post__heart--liked' : 'post__heart--none'}>
+        <div role="button" onClick={() => onLike(post.dataTime)}>
+          &hearts; {Object.keys(post.likes).length}
+        </div>
+      </div>
     </div>
   </ListGroupItem>
 );
@@ -39,11 +46,15 @@ Post.propTypes = {
     content: PropTypes.string,
     dataTime: PropTypes.any
   }),
-  onDelete: PropTypes.func
+  onDelete: PropTypes.func,
+  onLike: PropTypes.func,
+  liked: PropTypes.bool
 };
 
 Post.defaultProps = {
   post: {},
-  onDelete: () => {}
+  onDelete: () => {},
+  onLike: () => {},
+  liked: false
 };
 export default Post;

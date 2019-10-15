@@ -41,7 +41,7 @@ class AddPostForm extends React.Component {
             onChange={this.handleTextChange}
           />
         </label>
-        <Button classeName="addForm__bigButton" onClick={this.handleSubmit}>
+        <Button className="addForm__bigButton" onClick={this.handleSubmit}>
           Add
         </Button>
       </div>

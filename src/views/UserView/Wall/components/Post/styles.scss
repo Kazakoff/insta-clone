@@ -35,4 +35,10 @@
     align-content: center;
     width: 100%;
   }
+  .post__heard--liked {
+    color: purple;
+  }
+  .post__heard--none {
+    color: darkolivegreen;
+  }
 }
