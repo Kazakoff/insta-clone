@@ -2,17 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ListGroup } from 'react-bootstrap';
 import Post from './Post';
-// переделать в класс с методом liked - который передать в onLike {({ postsIsLoading, posts, onDelete, liked, onLike })
+
 class Wall extends React.PureComponent {
-   onLikeHandler = id => this.props.onLike(id, this.props.currentUser);
- /* onLikeHandler(id) {
-    props.onLike(id, this.props.currentUser);
-  }
-*/
+  onLikeHandler = id => this.props.onLike(id, this.props.currentUser);
+
   render() {
     const { postsIsLoading, posts, onDelete, liked } = this.props;
     if (!postsIsLoading) return <div> Loading...</div>;
-    
+
     return (
       <ListGroup className="wall">
         {posts ? (
@@ -28,7 +25,7 @@ class Wall extends React.PureComponent {
               />
             ))
         ) : (
-          <div> Пока постов нет </div>
+          <div> Empty </div>
         )}
       </ListGroup>
     );
