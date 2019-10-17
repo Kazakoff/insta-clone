@@ -5,6 +5,8 @@ function posts(state = [], action) {
     case LIKE_POST: {
       const { user, dataTime } = action.payload;
       const newPosts = Object.assign({}, state);
+      console.log(state);
+      console.log(newPosts);
       // -w
       if (newPosts[dataTime].likes.find(userLike => userLike === user)) {newPosts[dataTime].likes.filter(userLike => userLike !== user);}
       else newPosts[dataTime].likes.concat(user);
