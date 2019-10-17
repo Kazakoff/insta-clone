@@ -6,21 +6,21 @@ import './styles.scss';
 
 const Post = ({ post, onDelete, liked, onLike }) => (
   <ListGroupItem className="post">
-    <div className="headWraper">
+    <div className="headWrapper">
       <div className="post__caption">{post.dataTime}</div>
     </div>
-    <div className="imageWraper">
+    <div className="imageWrapper">
       {post.pic !== '' ? (
-        <img className="imageWraper__image" alt={post.caption} src={post.pic} />
+        <img className="imageWrapper__image" alt={post.caption} src={post.pic} />
       ) : (
         ''
       )}
     </div>
-    <div className="contentWraper">
+    <div className="contentWrapper">
       <div className="post__caption">{post.content}</div>
     </div>
 
-    <div className="controlsWraper">
+    <div className="controlsWrapper">
       <div className="post__button">
         {onDelete ? (
           <button type="button" onClick={() => onDelete(post.dataTime)}>
@@ -32,7 +32,7 @@ const Post = ({ post, onDelete, liked, onLike }) => (
       </div>
       <div className={liked ? 'post__heart--liked' : 'post__heart--none'}>
         <div role="button" onClick={() => onLike(post.dataTime)}>
-          &hearts; {Object.keys(post.likes).length}
+          &hearts; {post.likes.length}
         </div>
       </div>
     </div>
@@ -44,7 +44,8 @@ Post.propTypes = {
     pic: PropTypes.string,
     caption: PropTypes.string,
     content: PropTypes.string,
-    dataTime: PropTypes.any
+    dataTime: PropTypes.any,
+    likes: PropTypes.array
   }),
   onDelete: PropTypes.func,
   onLike: PropTypes.func,

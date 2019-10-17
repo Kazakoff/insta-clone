@@ -14,6 +14,7 @@ app.get('/users', (request, response) => {
 app.get('/posts', (request, response) => {
   const { userId } = request.query;
   response.send(posts.postslist[userId]);
+  console.log(posts.postslist[userId]);
 });
 app.listen(4000);
 console.log('Server started');

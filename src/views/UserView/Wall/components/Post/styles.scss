@@ -4,11 +4,11 @@
   flex-direction: column;
   border-radius: 3px;
   border: 1px solid $borderColor;
-  background-color: $backgroudColor;
+  background-color: $backgroundColor;
   margin-left: 10%;
   margin-right: 10%;
 
-  .headWraper {
+  .headWrapper {
     margin: 20pt 0pt 20pt 0pt;
     align-content: center;
     width: 100%;
@@ -20,18 +20,18 @@
       align-content: left;
     }
   }
-  .imageWraper {
+  .imageWrapper {
     align-content: center;
     &__image {
       width: 100%;
     }
   }
-  .contentWraper {
+  .contentWrapper {
     align-content: left;
     padding: 10px 5px 10px 5px;
     width: 100%;
   }
-  .controlsWraper {
+  .controlsWrapper {
     align-content: center;
     width: 100%;
   }

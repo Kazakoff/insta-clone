@@ -20,12 +20,4 @@ const App = () => (
   </div>
 );
 
-/* const App = () => (
-  <div>
-    <BrowserRouter>
-      <Route path="/admin" component={AdminView} />
-    </BrowserRouter>
-  </div>
-);
-*/
 export default App;
