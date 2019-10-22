@@ -16,8 +16,9 @@ function mapDispachToProps(dispatch) {
     onDelete: (id) => {
       dispatch(deletePost(id));
     },
-    onLike: (id, currentUser) => {
-      dispatch(likePost(id, currentUser));
+    onLike: (id, user) => {
+      console.log(user);
+      dispatch(likePost(id, user));
     }
   };
 }

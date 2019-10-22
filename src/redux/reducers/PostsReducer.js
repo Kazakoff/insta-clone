@@ -3,14 +3,10 @@ import { ADD_POST, DELETE_POST, LOAD_POSTS, CLEAR_POSTS, LIKE_POST } from '../Ac
 function posts(state = [], action) {
   switch (action.type) {
     case LIKE_POST: {
-      const { user, dataTime } = action.payload;
-      const newPosts = Object.assign({}, state);
-      console.log(state);
-      console.log(newPosts);
-      // -w
-      if (newPosts[dataTime].likes.find(userLike => userLike === user)) {newPosts[dataTime].likes.filter(userLike => userLike !== user);}
-      else newPosts[dataTime].likes.concat(user);
-      console.log(newPosts);
+      const { currentUser, dataTime } = action.payload;
+      const newPosts = [...state];
+      const likedPost = newPosts.find(post => post.dataTime === dataTime);
+      if (likedPost.likes.find(userLike => userLike === currentUser)) { likedPost.likes = likedPost.likes.filter(userLike => userLike !== currentUser); } else likedPost.likes = likedPost.likes.concat(currentUser);
       return newPosts;
     }
     case LOAD_POSTS:
