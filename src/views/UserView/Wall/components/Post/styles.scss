@@ -20,25 +20,31 @@
       align-content: left;
     }
   }
+
   .imageWrapper {
     align-content: center;
     &__image {
-      width: 100%;
+      width: 50%;
     }
   }
+
   .contentWrapper {
     align-content: left;
     padding: 10px 5px 10px 5px;
     width: 100%;
   }
+
   .controlsWrapper {
     align-content: center;
-    width: 100%;
-  }
-  .post__heard--liked {
-    color: purple;
-  }
-  .post__heard--none {
-    color: darkolivegreen;
+    width: 50%;
+    font-size: 20px;
+
+    .post__heart--liked {
+      color: purple;
+    }
+
+    .post__heart--none {
+      color: darkolivegreen;
+    }
   }
 }

@@ -30,6 +30,7 @@ const Post = ({ post, onDelete, liked, onLike }) => (
           ''
         )}
       </div>
+      <div className="post__heart--liked">DDD</div>
       <div className={liked ? 'post__heart--liked' : 'post__heart--none'}>
         <div role="button" onClick={() => onLike(post.dataTime)}>
           &hearts; {post.likes.length}

@@ -7,7 +7,7 @@ class Wall extends React.PureComponent {
   onLikeHandler = id => this.props.onLike(id, this.props.currentUser);
 
   render() {
-    const { postsIsLoading, posts, onDelete, liked } = this.props;
+    const { postsIsLoading, posts, onDelete } = this.props;
     if (!postsIsLoading) return <div> Loading...</div>;
 
     return (
@@ -20,7 +20,7 @@ class Wall extends React.PureComponent {
                 key={post.dataTime.toString()}
                 post={post}
                 onDelete={onDelete}
-                liked={liked}
+                liked={post.likes.includes(this.props.currentUser)}
                 onLike={this.onLikeHandler}
               />
             ))
