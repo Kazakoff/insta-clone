@@ -4,41 +4,50 @@ import { ListGroupItem } from 'react-bootstrap';
 
 import './styles.scss';
 
-const Post = ({ post, onDelete, liked, onLike }) => (
-  <ListGroupItem className="post">
-    <div className="headWrapper">
-      <div className="post__caption">{post.dataTime}</div>
-    </div>
-    <div className="imageWrapper">
-      {post.pic !== '' ? (
-        <img className="imageWrapper__image" alt={post.caption} src={post.pic} />
-      ) : (
-        ''
-      )}
-    </div>
-    <div className="contentWrapper">
-      <div className="post__caption">{post.content}</div>
-    </div>
+const Post = ({ post, onDelete, liked, onLike }) => {
+  const DeletePost = () => {
+    onDelete(post.dataTime);
+  };
+  const LikePost = () => {
+    onLike(post.dataTime);
+  };
 
-    <div className="controlsWrapper">
-      <div className="post__button">
-        {onDelete ? (
-          <button type="button" onClick={() => onDelete(post.dataTime)}>
-            Remove
-          </button>
+  return (
+    <ListGroupItem className="post">
+      <div className="headWrapper">
+        <div className="post__caption">{post.dataTime}</div>
+      </div>
+      <div className="imageWrapper">
+        {post.pic !== '' ? (
+          <img className="imageWrapper__image" alt={post.caption} src={post.pic} />
         ) : (
           ''
         )}
       </div>
-      <div className="post__heart--liked">DDD</div>
-      <div className={liked ? 'post__heart--liked' : 'post__heart--none'}>
-        <div role="button" onClick={() => onLike(post.dataTime)}>
-          &hearts; {post.likes.length}
+      <div className="contentWrapper">
+        <div className="post__caption">{post.content}</div>
+      </div>
+
+      <div className="controlsWrapper">
+        <div className="post__button">
+          {onDelete ? (
+            <button type="button" onClick={DeletePost}>
+              Remove
+            </button>
+          ) : (
+            ''
+          )}
+        </div>
+        <div className="post__heart--liked">DDD</div>
+        <div className={liked ? 'post__heart--liked' : 'post__heart--none'}>
+          <div role="button" onClick={LikePost}>
+            &hearts; {post.likes.length}
+          </div>
         </div>
       </div>
-    </div>
-  </ListGroupItem>
-);
+    </ListGroupItem>
+  );
+};
 
 Post.propTypes = {
   post: PropTypes.shape({

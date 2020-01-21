@@ -6,7 +6,10 @@ function posts(state = [], action) {
       const { currentUser, dataTime } = action.payload;
       const newPosts = [...state];
       const likedPost = newPosts.find(post => post.dataTime === dataTime);
-      if (likedPost.likes.find(userLike => userLike === currentUser)) { likedPost.likes = likedPost.likes.filter(userLike => userLike !== currentUser); } else likedPost.likes = likedPost.likes.concat(currentUser);
+      if (likedPost.likes.find(userLike => userLike === currentUser)) {
+        likedPost.likes = likedPost.likes.filter(userLike => userLike !== currentUser);
+      } else likedPost.likes = likedPost.likes.concat(currentUser);
+
       return newPosts;
     }
     case LOAD_POSTS:
