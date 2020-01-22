@@ -8,6 +8,10 @@ class PostsRepository {
   create(object) {
     return this.model.create(object);
   }
+
+  getAll() {
+    return this.model.find({});
+  }
 }
 
 module.exports = new PostsRepository(Post);

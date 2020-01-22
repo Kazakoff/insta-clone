@@ -7,7 +7,9 @@ const users = require('./Data/UsersList');
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use((request, response, next) => {
+app.use('/posts', require('./routes/postsRoute'));
+
+/* app.use((request, response, next) => {
   next();
 });
 app.get('/users', (request, response) => {
@@ -18,7 +20,7 @@ app.get('/posts', (request, response) => {
   response.send(posts.postslist[userId]);
   console.log(posts.postslist[userId]);
 });
-
+*/
 mongoose
   .connect(
     'mongodb+srv://admin:aebb8aeb@cluster0-curam.mongodb.net/test?retryWrites=true&w=majority',
